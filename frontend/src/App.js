@@ -1,11 +1,12 @@
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import Menu from "./components/menu";
 
 const App =  () => {
   return (
     <>
       <Header />
-        <main className="text-5xl font-bold underline"> Welcome world!  </main>
+        <Menu />
       <Footer />
     </>
   );
