@@ -1,7 +1,13 @@
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 const App =  () => {
   return (
-    <h1 className="text-5xl font-bold underline"> Welcome world!  </h1>
+    <>
+      <Header />
+        <main className="text-5xl font-bold underline"> Welcome world!  </main>
+      <Footer />
+    </>
   );
 }
 
