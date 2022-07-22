@@ -1,10 +1,10 @@
-import Menu from '../data/categories_items';
+import MenuItems from '../data/categories_items';
 import Category from '../components/category';
 
-const menu = () => {
+const Menu = () => {
   return (
-    <ul>{Menu.categories.map(cat => <Category name={cat.name} />)}</ul>
+    <ul>{MenuItems.categories.map(cat => <Category name={cat.name} />)}</ul>
   )
-}
+};
 
-export default menu
+export default Menu;
