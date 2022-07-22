@@ -1,6 +1,6 @@
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import Menu from "./components/menu";
+import Menu from "./pages/menu";
 
 const App =  () => {
   return (
