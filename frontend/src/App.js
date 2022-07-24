@@ -5,9 +5,7 @@ import Menu from "./pages/menu";
 const App =  () => {
   return (
     <>
-      <Header />
-        <Menu />
-      <Footer />
+      <Menu />
     </>
   );
 }
