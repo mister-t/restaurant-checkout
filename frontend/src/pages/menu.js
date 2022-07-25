@@ -97,7 +97,7 @@ const Menu = () => {
           </div>
         </div>
       </section>
-      <section className="flex flex-col absolute bottom-0 w-screen h-1/4 mx-auto md:flex-row">
+      <section className="flex flex-col absolute bottom-0 w-screen min-h-1/4 mx-auto md:flex-row">
         <div className="w-2/3 mx-1 p-2 bg-white">
           <article className="relative flex flex-col border p-4">
             <div className="flex justify-between">
@@ -130,7 +130,11 @@ const Menu = () => {
           </article>
         </div>
         <div className="w-1/3">
-          <article className="h-1/3 text-white flex flex-col  text-center"><button className="h-full w-full border-y text-3xl tracking-wider">Cancel</button>
+          <article className="h-1/3 text-white flex items-center justify-center border-y">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <button className="text-3xl tracking-wider">Cancel</button>
           </article>
           <article className="h-2/3 flex flex-col items-center justify-center text-white">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 my-2" viewBox="0 0 20 20" fill="currentColor">
