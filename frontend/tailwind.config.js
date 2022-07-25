@@ -14,6 +14,7 @@ module.exports = {
       colors: {
         softBlue: "hsl(204, 56%, 59%)",
         darkSlate: "hsl(213, 10%, 22%)",
+        softRed: "hsl(0, 94%, 66%)",
       },
       backgroundImage: {
         'dark-tumeric': "url('../public/images/background/lucas-marulier--tpMfp_GmTI-unsplash.jpg')",
