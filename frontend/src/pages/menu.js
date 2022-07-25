@@ -4,7 +4,7 @@
 const Menu = () => {
   return (
     // <ul>{MenuItems.categories.map(cat => <Category name={cat.name} />)}</ul>
-    <section className="h-screen bg-dark-aliona bg-no-repeat bg-cover bg-fixed" id="tabs">
+    <section className="min-h-screen bg-dark-aliona bg-no-repeat bg-cover bg-fixed" id="tabs">
       <div className="w-screen mx-auto">
         <div
           className="flex flex-col justify-center mx-auto mb-6 md:flex-row"
