@@ -1,7 +1,6 @@
 import React from 'react';
 
 const category = ({name, id, numOfTabs, isActive}) => {
-  console.log('isActive = ', isActive)
   const classNames = `flex justify-center cursor-pointer ${isActive ? "bg-softBlue border-b md:border-b-0 " : "border-b-8 border-softBlue"} md:w-1/${numOfTabs} tab`;
   return (
     <div

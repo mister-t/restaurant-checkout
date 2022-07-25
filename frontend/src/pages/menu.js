@@ -1,18 +1,12 @@
 import MenuItems from '../data/categories_items';
-import Category from '../components/category';
+import Categories from '../components/categories';
 
 const Menu = () => {
   const { categories } = MenuItems; 
   return (
     <main className="relative min-h-screen bg-dark-aliona bg-no-repeat bg-cover bg-fixed" id="tabs">
       <section className="w-screen mx-auto">
-        <div className="flex flex-col justify-center mx-auto mb-6 md:flex-row">
-          {categories.map((cat, idx)=> <Category
-            key={cat.id}
-            isActive={idx === 0 ? true : false} id={cat.id}
-            name={cat.name}
-            numOfTabs={categories.length}/>)}
-        </div>
+        <Categories categories={categories} />
 
         <div id="panels" className="container mx-auto">
           <div className="flex flex-col py-5 md:flex-row md:space-x-7 panel panel-1">
