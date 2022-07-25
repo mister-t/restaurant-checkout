@@ -1,31 +1,17 @@
-// import MenuItems from '../data/categories_items';
-// import Category from '../components/category';
+import MenuItems from '../data/categories_items';
+import Category from '../components/category';
 
 const Menu = () => {
+  const { categories } = MenuItems; 
   return (
-    // <ul>{MenuItems.categories.map(cat => <Category name={cat.name} />)}</ul>
     <main className="relative min-h-screen bg-dark-aliona bg-no-repeat bg-cover bg-fixed" id="tabs">
       <section className="w-screen mx-auto">
-        <div
-          className="flex flex-col justify-center mx-auto mb-6 md:flex-row"
-        >
-          <div
-            className="flex justify-center text-center bg-softBlue cursor-pointer text-gray-600 border-b md:border-b-0 hover:text-softRed md:w-1/3 tab"
-            data-target="panel-1"
-          >
-            <div className="py-5 text-white" data-target="panel-1">Bakery</div>
-          </div>
-
-          <div
-            className="flex justify-center text-center cursor-pointer text-gray-600 border-b-8 border-softBlue md:w-1/3 md:hover:text-softRed "
-            data-target="panel-2"
-          >
-            <div className="py-5 text-white" data-target="panel-2">Entrees</div>
-          </div>
-
-          <div className="flex justify-center text-center cursor-pointer text-gray-600 border-b-8 border-softBlue md:w-1/3 hover:text-softRed tab" data-target="panel-3" >
-            <div className="py-5 text-white" data-target="panel-3">Drinks</div>
-          </div>
+        <div className="flex flex-col justify-center mx-auto mb-6 md:flex-row">
+          {categories.map((cat, idx)=> <Category
+            key={cat.id}
+            isActive={idx === 0 ? true : false} id={cat.id}
+            name={cat.name}
+            numOfTabs={categories.length}/>)}
         </div>
 
         <div id="panels" className="container mx-auto">
