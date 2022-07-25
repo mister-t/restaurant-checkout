@@ -4,8 +4,8 @@
 const Menu = () => {
   return (
     // <ul>{MenuItems.categories.map(cat => <Category name={cat.name} />)}</ul>
-    <section className="min-h-screen bg-dark-aliona bg-no-repeat bg-cover bg-fixed" id="tabs">
-      <div className="w-screen mx-auto">
+    <main className="relative min-h-screen bg-dark-aliona bg-no-repeat bg-cover bg-fixed" id="tabs">
+      <section className="w-screen mx-auto">
         <div
           className="flex flex-col justify-center mx-auto mb-6 md:flex-row"
         >
@@ -96,8 +96,50 @@ const Menu = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <section className="flex flex-col absolute bottom-0 w-screen h-1/4 mx-auto bg-white md:flex-row">
+        <div className="w-2/3 mx-10 p-2">
+          <article className="flex flex-col border p-4">
+            <div className="flex justify-between">
+              <h1 className="text-xl font-bold">Impossible Burger</h1>
+              <h2>$10.00</h2>
+            </div>
+            <p>Whole Wheat Bun, Gouda Cheese, Lettuce</p>
+          </article>
+          <article className="flex flex-col border p-4">
+            <div className="flex justify-between">
+              <h1 className="text-xl font-bold">Curly Fries</h1>
+              <h2>$5.00</h2>
+            </div>
+          </article>
+          <article className="flex flex-col border p-4">
+            <div className="flex justify-between">
+              <h1 className="text-xl font-bold">Curly Fries</h1>
+              <h2>$5.00</h2>
+            </div>
+          </article>
+          <article className="flex flex-col border p-4">
+            <div className="flex justify-between">
+              <h1 className="text-xl font-bold">Curly Fries</h1>
+              <h2>$5.00</h2>
+            </div>
+          </article>
+          <article className="flex flex-col border p-4">
+            <div className="flex justify-between">
+              <h1 className="text-xl font-bold">Curly Fries</h1>
+              <h2>$5.00</h2>
+            </div>
+          </article>
+          <article className="flex flex-col border p-4">
+            <div className="flex justify-between">
+              <h1 className="text-xl font-bold">Curly Fries</h1>
+              <h2>$5.00</h2>
+            </div>
+          </article>
+        </div>
+        <div className="w-1/3"> right side</div>
+      </section>
+    </main>
   )
 };
 
