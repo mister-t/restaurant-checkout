@@ -97,8 +97,8 @@ const Menu = () => {
           </div>
         </div>
       </section>
-      <section className="flex flex-col absolute bottom-0 w-screen h-1/4 mx-auto bg-white md:flex-row">
-        <div className="w-2/3 mx-1 p-2">
+      <section className="flex flex-col absolute bottom-0 w-screen h-1/4 mx-auto md:flex-row">
+        <div className="w-2/3 mx-1 p-2 bg-white">
           <article className="relative flex flex-col border p-4">
             <div className="flex justify-between">
               <h1 className="text-xl font-bold">Impossible Burger</h1>
@@ -129,7 +129,14 @@ const Menu = () => {
             </div>
           </article>
         </div>
-        <div className="w-1/3"> right side</div>
+        <div className="w-1/3">
+          <article className="h-1/3 text-white flex flex-col  text-center"><h1 className="h-full w-full border-y text-3xl tracking-wider pt-5">Cancel</h1>
+          </article>
+          <article className="h-2/3 flex flex-col items-center justify-center text-white">
+            <h1 className="min-h-2/3 text-white text-4xl tracking-wider font-bold mb-5">ORDER</h1> 
+            <h1 className="text-2xl tracking-wider ">$55.99</h1>
+          </article>
+        </div>
       </section>
     </main>
   )
