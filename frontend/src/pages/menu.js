@@ -130,10 +130,10 @@ const Menu = () => {
           </article>
         </div>
         <div className="w-1/3">
-          <article className="h-1/3 text-white flex flex-col  text-center"><h1 className="h-full w-full border-y text-3xl tracking-wider pt-5">Cancel</h1>
+          <article className="h-1/3 text-white flex flex-col  text-center"><button className="h-full w-full border-y text-3xl tracking-wider">Cancel</button>
           </article>
           <article className="h-2/3 flex flex-col items-center justify-center text-white">
-            <h1 className="min-h-2/3 text-white text-4xl tracking-wider font-bold mb-5">ORDER</h1> 
+            <button className="min-h-2/3 text-white text-4xl tracking-wider font-bold mb-5">ORDER</button> 
             <h1 className="text-2xl tracking-wider ">$55.99</h1>
           </article>
         </div>
