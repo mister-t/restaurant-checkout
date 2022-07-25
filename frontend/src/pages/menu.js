@@ -98,7 +98,7 @@ const Menu = () => {
         </div>
       </section>
       <section className="flex flex-col absolute bottom-0 w-screen h-1/4 mx-auto bg-white md:flex-row">
-        <div className="w-2/3 mx-10 p-2">
+        <div className="w-2/3 mx-1 p-2">
           <article className="relative flex flex-col border p-4">
             <div className="flex justify-between">
               <h1 className="text-xl font-bold">Impossible Burger</h1>
@@ -106,7 +106,7 @@ const Menu = () => {
             </div>
             <p className="text-slate-400">Whole Wheat Bun, Gouda Cheese, Lettuce</p>
             <div className="absolute bottom-0 right-0 w-11 overflow-hidden inline-block">
-              <div className="h-16 bg-slate-200 rotate-45 transform origin-bottom-left"><div className="-rotate-45 mx-auto">X</div></div>
+              <div className="h-16 bg-slate-200 rotate-45 transform origin-bottom-left"><div className="-rotate-45 w-16 text-slate-400">x</div></div>
             </div>
           </article>
           <article className="relative flex flex-col border p-4">
@@ -115,7 +115,7 @@ const Menu = () => {
               <h2 className="pr-5">$5.00</h2>
             </div>
             <div className="absolute bottom-0 right-0 w-11 overflow-hidden inline-block">
-              <div className="h-16 bg-slate-200 rotate-45 transform origin-bottom-left"><div className="-rotate-45">X</div></div>
+              <div className="h-16 bg-slate-200 rotate-45 transform origin-bottom-left"><div className="-rotate-45 w-16 text-slate-400">x</div></div>
             </div>
           </article>
           <article className="relative flex flex-col border p-4">
@@ -125,7 +125,7 @@ const Menu = () => {
             </div>
               <p className="text-slate-400">Quarter-pound Wagyu beef, No Onions</p>
             <div className="absolute bottom-0 right-0 w-11 overflow-hidden inline-block">
-              <div className="h-16 bg-slate-200 rotate-45 transform origin-bottom-left"><div className="-rotate-45">X</div></div>
+              <div className="h-16 bg-slate-200 rotate-45 transform origin-bottom-left"><div className="-rotate-45 w-16 text-slate-400">x</div></div>
             </div>
           </article>
         </div>
