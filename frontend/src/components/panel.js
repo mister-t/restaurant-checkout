@@ -12,7 +12,7 @@ const Panel = ({item, numOfItems}) => {
           title={name}
           className="rounded-full h-40 w-40"
         />
-        <h3 className="absolute bg-white text-slate-800 right-1/3 bottom-5 rounded-full px-1 drop-shadow">${normalizedPrice}</h3>
+        <h3 className="absolute bg-white text-slate-800 bottom-5 rounded-full px-1 drop-shadow">${normalizedPrice}</h3>
         <h3 className="absolute text-white -bottom-8" >{name}</h3>
     </div>
   )
