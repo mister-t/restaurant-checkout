@@ -2,7 +2,7 @@ import React from 'react'
 
 const Orders = () => {
   return (
-    <section className="flex flex-col absolute bottom-0 w-screen min-h-1/4 mx-auto md:flex-row">
+    <section className="flex flex-col fixed bottom-0 w-screen min-h-1/4 mx-auto md:flex-row">
       <div className="w-2/3 mx-1 p-2 bg-white">
         <article className="relative flex flex-col border p-4">
           <div className="flex justify-between">
