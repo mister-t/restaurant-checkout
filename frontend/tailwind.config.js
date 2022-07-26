@@ -20,6 +20,7 @@ module.exports = {
         'dark-tumeric': "url('../public/images/background/lucas-marulier--tpMfp_GmTI-unsplash.jpg')",
         'dark-aliona': "url('../public/images/background/aliona-gumeniuk-AOQ83RPea60-unsplash.jpg')",
         'dark-pickled-stardust': "url('../public/images/background/pickled-stardust-4xc6i5BKPWs-unsplash.jpg')",
+        'dark-chopping-board': "url('../public/images/background/patrick-fore-bg20VZvrfvY-unsplash.jpg')",
       }
     },
   },
