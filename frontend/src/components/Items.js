@@ -5,23 +5,24 @@ import Panels from './Panels'
 const Items = ({categoriesItems}) => {
   const [activeItems, setActiveItems] = useState([]);
   const [activeCats, setActiveCats] = useState([])
-  const { categories, items } = categoriesItems;
+  const { categories, items:allItems } = categoriesItems;
 
   useEffect(() => {
+    const id = Date.now() * -1;
     setActiveCats([
       {
-        id: Date.now() * -1,
+        id,
         name: 'All',
         isActive: true,
         numOfTabs: categories.length + 1
       }, ...categories
     ]);
 
-    setActiveItems(items);
-  }, [categories, items])
+    setActiveItems(allItems);
+  }, [categories, allItems])
 
   const setActiveCategory = (catId) => {
-    setActiveCats(activeCats.map(cat => {
+    const newCats = activeCats.map(cat => {
       if (cat.id === Number(catId)) {
         console.log('found categorty id: %s', catId)
         cat.isActive = true;
@@ -29,23 +30,28 @@ const Items = ({categoriesItems}) => {
         cat.isActive = false;
       }
       return cat;
-    }));
+    });
+    setActiveCats(newCats);
+    setItems(catId);
   };
 
   const setItems = (activeCatId) => {
-    setActiveItems(activeItems.map(item => {
+    console.log('current cat id: %s', activeCatId)
+    const newItems = activeCatId < 0 ? allItems : allItems.filter(item => {
       const {category_id: itemCatId } = item;
-      if (itemCatId === Number(activeCatId)) {
+      if (itemCatId == activeCatId) {
         return item;
       } 
-      return null;
-    }));
+    });
+    console.log('item cat ID: %s', activeCatId)
+    console.log(newItems)
+    setActiveItems(newItems);
   };
 
   return (
     <section className="w-screen mx-auto">
-      <Categories activeCats={activeCats} setActiveCategory={setActiveCategory} categoriesItems={categoriesItems} />
-      <Panels setItems={setItems} panels={activeItems}/>
+      <Categories activeCats={activeCats} setActiveCategory={setActiveCategory} />
+      <Panels panels={activeItems}/>
     </section>
   )
 }
