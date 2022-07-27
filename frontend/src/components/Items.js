@@ -22,9 +22,10 @@ const Items = ({categoriesItems}) => {
   }, [categories, allItems])
 
   const setActiveCategory = (catId) => {
+    const normalizedCatId = Number(catId);
     const newCats = activeCats.map(cat => {
-      if (cat.id === Number(catId)) {
-        console.log('found categorty id: %s', catId)
+      if (cat.id === normalizedCatId) {
+        // console.log('found categorty id: %s', catId)
         cat.isActive = true;
       } else {
         cat.isActive = false;
@@ -32,19 +33,17 @@ const Items = ({categoriesItems}) => {
       return cat;
     });
     setActiveCats(newCats);
-    setItems(catId);
+    setItems(normalizedCatId);
   };
 
   const setItems = (activeCatId) => {
     console.log('current cat id: %s', activeCatId)
     const newItems = activeCatId < 0 ? allItems : allItems.filter(item => {
       const {category_id: itemCatId } = item;
-      if (itemCatId == activeCatId) {
-        return item;
-      } 
+      return itemCatId === activeCatId;
     });
-    console.log('item cat ID: %s', activeCatId)
-    console.log(newItems)
+    // console.log('item cat ID: %s', activeCatId)
+    // console.log(newItems)
     setActiveItems(newItems);
   };
 
