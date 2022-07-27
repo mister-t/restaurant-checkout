@@ -18,7 +18,7 @@ const Categories = ({categoriesItems}) => {
 
   const setActiveCategory = (catId) => {
     setAllCats(allCats.map(cat => {
-      if (cat.id == catId) {
+      if (cat.id === Number(catId)) {
         console.log('found categorty id: %s', catId)
         cat.isActive = true;
       } else {
