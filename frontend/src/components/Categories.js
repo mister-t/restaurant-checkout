@@ -4,7 +4,7 @@ const Categories = ({categoriesItems}) => {
   const { categories } = categoriesItems;
   const allCategories = [
     {
-      id: Date.now(),
+      id: Date.now() * -1,
       name: 'All',
       isActive: true,
       numOfTabs: categories.length + 1
