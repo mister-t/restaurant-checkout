@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 export default class Category extends Component {
-  static propTypes = {
+  static defaultProps = {
     catName: 'All',
     id: -1,
     numOfTabs: 0,
