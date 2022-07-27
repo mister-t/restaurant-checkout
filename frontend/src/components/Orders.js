@@ -1,6 +1,6 @@
 const Orders = () => {
   return (
-    <section className="flex flex-col fixed bottom-0 w-screen max-h-52 mx-auto md:flex-row">
+    <section className="flex flex-col w-screen max-h-52 mx-auto md:flex-row">
       <div className="w-2/3 mx-0 p-1 bg-white/90 overflow-y-scroll">
         <article className="relative flex flex-col border p-4">
           <div className="flex justify-between">
