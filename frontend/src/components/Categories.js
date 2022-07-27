@@ -2,14 +2,21 @@ import Category from '../components/Category';
 
 const Categories = ({categoriesItems}) => {
   const { categories } = categoriesItems;
+  const allCategories = [
+    {
+      id: Date.now(),
+      name: 'All',
+      numOfTabs: categories.length + 1
+    }, ...categories
+  ];
+
   return (
     <div className="flex flex-col mx-auto mb-6 md:flex-row">
-      {categories.map((cat, idx)=> <Category
+      {allCategories.map((cat, idx)=> <Category
         key={cat.id}
-        isActive={idx === 0 ? true : false}
         catId={cat.id}
         catName={cat.name}
-        numOfTabs={categories.length}/>)}
+        numOfTabs={allCategories.length}/>)}
     </div>
   );
 };
