@@ -1,5 +1,5 @@
-import Categories from './categories'
-import Panels from './panels'
+import Categories from './Categories'
+import Panels from './Panels'
 
 const menuItems = ({categoriesItems}) => {
   return (

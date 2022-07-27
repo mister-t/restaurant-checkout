@@ -1,4 +1,4 @@
-import Category from '../components/category';
+import Category from '../components/Category';
 
 const Categories = ({categoriesItems}) => {
   const { categories } = categoriesItems;

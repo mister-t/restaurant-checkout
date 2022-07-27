@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Orders = () => {
   return (
     <section className="flex flex-col fixed bottom-0 w-screen min-h-1/4 mx-auto md:flex-row">
