@@ -1,7 +1,7 @@
 const Orders = () => {
   return (
-    <section className="flex flex-col fixed bottom-0 w-screen min-h-1/4 mx-auto md:flex-row">
-      <div className="w-2/3 mx-0 p-1 bg-white">
+    <section className="flex flex-col fixed bottom-0 w-screen max-h-52 mx-auto md:flex-row">
+      <div className="w-2/3 mx-0 p-1 bg-white/90 overflow-y-scroll">
         <article className="relative flex flex-col border p-4">
           <div className="flex justify-between">
             <h1 className="text-xl font-bold">Impossible Burger</h1>
