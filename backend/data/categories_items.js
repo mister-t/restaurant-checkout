@@ -97,4 +97,4 @@ const categoriesItems = {
   ]
 };
 
-export default categoriesItems;
+module.exports = categoriesItems;
