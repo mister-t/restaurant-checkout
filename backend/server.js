@@ -2,8 +2,9 @@ const express = require('express');
 const categoriesItems = require('./data/categories_items');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('route to return data is ok!')
+app.get('/api/categories/items', (req, res) => {
+  console.log(categoriesItems)
+  res.json(categoriesItems);
 });
 
 app.get('/api/categories', (req, res) => {
