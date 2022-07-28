@@ -3,7 +3,6 @@ const categoriesItems = require('./data/categories_items');
 const app = express();
 
 app.get('/api/categories/items', (req, res) => {
-  console.log(categoriesItems)
   res.json(categoriesItems);
 });
 
@@ -23,7 +22,6 @@ app.get('/api/items', (req, res) => {
 
 app.get('/api/items/:id', (req, res) => {
   const { items } = categoriesItems;
-  console.log('/api/items/%s', req.params.id)
   const item = items.find(item => item.id === Number(req.params.id));
   res.json(item);
 });
