@@ -8,6 +8,7 @@ const App =  () => {
     <Router>
       <Routes>
         <Route path='/' element={<Menu/>} exact />
+        <Route path='/categories/:id' element={<Menu/>} exact />
       </Routes>
     </Router>
   );
