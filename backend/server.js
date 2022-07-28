@@ -1,3 +1,6 @@
+require('dotenv').config();
+const PORT = process.env.PORT;
+const MODE = process.env.MODE;
 const express = require('express');
 const categoriesItems = require('./data/categories_items');
 const app = express();
@@ -32,4 +35,4 @@ app.get('/api/items/category/:id', (req, res) => {
   res.json(item);
 });
 
-app.listen(5001, console.log('Server running on port 5001'));
+app.listen(PORT, console.log(`Server running in ${MODE} on port ${PORT}`));
