@@ -1,7 +1,10 @@
 import 'dotenv/config'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+import colors from 'colors';
 import express from 'express';
+import connectDB from './config/db.js';
 import categoriesItems from './data/categories_items.js';
 
+connectDB();
 const PORT = process.env.PORT;
 const MODE = process.env.MODE;
 const app = express();
@@ -36,4 +39,4 @@ app.get('/api/items/category/:id', (req, res) => {
   res.json(item);
 });
 
-app.listen(PORT, console.log(`Server running in ${MODE} on port ${PORT}`));
+app.listen(PORT, console.log(`Server running in '${MODE}' mode on port '${PORT}'`.bgMagenta));
