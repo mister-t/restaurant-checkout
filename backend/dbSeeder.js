@@ -32,7 +32,7 @@ const importData = async () => {
 
     //match created images to the items
     const itemsToInsert = createdImages.filter(img => itemsToImg[img.name])
-    .map(img => ({name: itemsToImg[img.name], image: img._id}));
+    .map(img => ({name: itemsToImg[img.name].name, price: itemsToImg[img.name].price, image: img._id}));
     console.log(`matched items to imgs: ${JSON.stringify(itemsToInsert)}`)
 
     console.log(`Data imported successfully`.bgGreen);

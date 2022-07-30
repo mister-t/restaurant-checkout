@@ -1,15 +1,15 @@
 const itemsToImg = {
-    "293202f9d9f7f4": "Bagel",
-    "808916fd5ddf96": "Croissant",
-    "95d02a230fe050": "Muffin",
-    "23f95765b967ff": "Toast / Bread",
-    "5650be5d48a99b": "English Muffin",
-    "bd237a0c0d19ef": "Pasta Bar",
-    "3e1bd1342800f7": "Mediterranean Entree",
-    "72589c4c990f97": "Indian Entree",
-    "70c2a6247e7b58": "Small Drink",
-    "dba0fc03da30ca": "Medium Drink",
-    "ffc9bf61e441cd": "Large Drink",
+    "293202f9d9f7f4": {name: "Bagel", price: 2.0},
+    "808916fd5ddf96": {name: "Croissant", price: 1.0},
+    "95d02a230fe050": {name: "Muffin", price: 1.25 },
+    "23f95765b967ff": {name: "Toast / Bread", price: 1 },
+    "5650be5d48a99b": {name: "English Muffin", price: 2.5},
+    "bd237a0c0d19ef": {name: "Pasta Bar", price: 12.99},
+    "3e1bd1342800f7": {name: "Mediterranean Entree", price: 10.99 },
+    "72589c4c990f97": {name: "Indian Entree", price: 11.95},
+    "70c2a6247e7b58": {name: "Small Drink", price: 0.75},
+    "dba0fc03da30ca": {name: "Medium Drink", price: 1.5},
+    "ffc9bf61e441cd": {name: "Large Drink", price: 2},
 };
 
 const itemsToCats = [
@@ -66,6 +66,12 @@ const itemsToCats = [
       "image_id": "70c2a6247e7b58",
       "name": "Small Drink",
       "price": 0.75
+  },
+  {
+      "category_id": 3,
+      "image_id": "dba0fc03da30ca",
+      "name": "Medium Drink",
+      "price": 1.5
   },
   {
       "category_id": 3,
