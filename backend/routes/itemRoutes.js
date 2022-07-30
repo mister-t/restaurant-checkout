@@ -9,7 +9,12 @@ const router = express.Router();
 // @access Public
 router.get('/', asyncHandler(async (req, res) => {
   const items = await Item.find({});
-  res.json(items);
+  if (items.length) {
+    res.json(items);
+  } else {
+    res.status(404);
+    throw new Error(`No items found`)
+  }
 }));
 
 // @desc Fetch an item by ID
