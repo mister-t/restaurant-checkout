@@ -2,6 +2,7 @@ import 'dotenv/config'; // see https://github.com/motdotla/dotenv#how-do-i-use-d
 import colors from 'colors';
 import express from 'express';
 import connectDB from './config/db.js';
+import { urlNotFound, errorHandler } from './middleware/errorMiddleware.js';
 import categoriesItems from './data/categories_items.js';
 
 //Routes
@@ -13,6 +14,8 @@ const MODE = process.env.MODE;
 const app = express();
 
 app.use('/api/categories', categoryRoutes);
+app.use(urlNotFound);
+app.use(errorHandler);
 
 app.get('/api/items', (req, res) => {
   res.json(categoriesItems.items);
