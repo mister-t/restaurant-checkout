@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const itemSchema = mongoose.Schema({
-  'categoryId': {
+  'category': {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
     required: true

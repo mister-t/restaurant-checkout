@@ -5,7 +5,7 @@ import colors from 'colors';
 //Seed data
 import categoriesImages from './data/categories.js';
 import images from './data/images.js';
-import { items, itemsToImg, itemsToCats } from './data/items.js';
+import { items, itemsToImg } from './data/items.js';
 
 import Image from './models/imageModel.js';
 import Category from './models/categoryModel.js';
@@ -29,11 +29,17 @@ const importData = async () => {
     .map(img => ({ name: categoriesImages[img.name], image: img._id }));
     // console.log(`matched cats to imgs: ${JSON.stringify(catsToInsert)}`)
     const createdCategories = await Category.insertMany(catsToInsert);
+    // console.log(`created categories: ${JSON.stringify(createdCategories)}`)
+    const categoryIDs = createdCategories.map(cat => ({[cat.name]: cat._id})).reduce((result, cat) => ({...result, ...cat}), {});
+    console.log(JSON.stringify(categoryIDs))
 
     //match created images to the items
     const itemsToInsert = createdImages.filter(img => itemsToImg[img.name])
-    .map(img => ({name: itemsToImg[img.name].name, price: itemsToImg[img.name].price, image: img._id}));
-    console.log(`matched items to imgs: ${JSON.stringify(itemsToInsert)}`)
+    .map(img => ({category: categoryIDs[itemsToImg[img.name].category], name: itemsToImg[img.name].name, price: itemsToImg[img.name].price, image: img._id}));
+    console.log(JSON.stringify(itemsToInsert))
+    const insertedItems = await Item.insertMany(itemsToInsert);
+
+
 
     console.log(`Data imported successfully`.bgGreen);
     process.exit();
