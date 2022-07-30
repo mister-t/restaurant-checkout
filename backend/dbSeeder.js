@@ -3,7 +3,7 @@ import 'dotenv/config'; // see https://github.com/motdotla/dotenv#how-do-i-use-d
 import colors from 'colors';
 
 //Seed data
-import categories from './data/categories.js';
+import categoriesImages from './data/categories.js';
 import images from './data/images.js';
 import items from './data/items.js';
 
@@ -15,12 +15,6 @@ import connectDB from './config/db.js';
 connectDB(); //connect to our db cluster in Mongodb.com
 
 const DROP_DATA = '-d';
-
-const categoriesImages = {
-  'f3fbf57b118fa9': 'Bakery',
-  'b271afbefdc554': 'Entrees',
-  'eba73b2361fae3': 'Drinks'
-};
 
 const importData = async () => {
   try {

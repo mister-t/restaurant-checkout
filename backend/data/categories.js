@@ -1,16 +1,7 @@
-const categories = [
-  {
-    "imageName": "f3fbf57b118fa9",
-    "name": "Bakery"
-  },
-  {
-    "imageName": "b271afbefdc554",
-    "name": "Entrees"
-  },
-  {
-    "imageName": "eba73b2361fae3",
-    "name": "Drinks"
-  }
-];
+const categoriesImages = {
+  'f3fbf57b118fa9': 'Bakery',
+  'b271afbefdc554': 'Entrees',
+  'eba73b2361fae3': 'Drinks'
+};
 
-export default categories;
+export default categoriesImages;
