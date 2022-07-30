@@ -3,7 +3,6 @@ import colors from 'colors';
 import express from 'express';
 import connectDB from './config/db.js';
 import { urlNotFound, errorHandler } from './middleware/errorMiddleware.js';
-import categoriesItems from './data/categories_items.js';
 
 //Routes
 import categoryRoutes from './routes/categoryRoutes.js';

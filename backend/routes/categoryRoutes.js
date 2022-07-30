@@ -26,7 +26,8 @@ router.get('/:id', asyncHandler(async (req, res) => {
   if (category) {
     res.json(category);
   } else {
-    res.status(404).json({ message: `Category, ${req.params.id}, not found`})
+    res.status(404);
+    throw new Error(`Category, ${req.params.id}, not found`)
   }
 }));
 
