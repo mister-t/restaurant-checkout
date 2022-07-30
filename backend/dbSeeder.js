@@ -5,7 +5,7 @@ import colors from 'colors';
 //Seed data
 import categoriesImages from './data/categories.js';
 import images from './data/images.js';
-import { items, itemsToImg } from './data/items.js';
+import { itemsToImg } from './data/items.js';
 
 import Image from './models/imageModel.js';
 import Category from './models/categoryModel.js';
@@ -31,9 +31,8 @@ const importData = async () => {
 
     //Match the category names with their newly created IDs
     const categoryIDs = createdCategories.map(cat => ({[cat.name]: cat._id})).reduce((result, cat) => ({...result, ...cat}), {});
-    // console.log(JSON.stringify(categoryIDs))
 
-    //Match created images to the items
+    //Match newly created images & categories to the items
     const itemsToInsert = createdImages.filter(img => itemsToImg[img.name])
     .map(img => {
       const { name:imgName, _id:image } = img;
