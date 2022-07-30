@@ -27,18 +27,22 @@ const importData = async () => {
     //match created images to categories
     const catsToInsert = createdImages.filter(img => categoriesImages[img.name])
     .map(img => ({ name: categoriesImages[img.name], image: img._id }));
-    // console.log(`matched cats to imgs: ${JSON.stringify(catsToInsert)}`)
     const createdCategories = await Category.insertMany(catsToInsert);
-    // console.log(`created categories: ${JSON.stringify(createdCategories)}`)
-    const categoryIDs = createdCategories.map(cat => ({[cat.name]: cat._id})).reduce((result, cat) => ({...result, ...cat}), {});
-    console.log(JSON.stringify(categoryIDs))
 
-    //match created images to the items
+    //Match the category names with their newly created IDs
+    const categoryIDs = createdCategories.map(cat => ({[cat.name]: cat._id})).reduce((result, cat) => ({...result, ...cat}), {});
+    // console.log(JSON.stringify(categoryIDs))
+
+    //Match created images to the items
     const itemsToInsert = createdImages.filter(img => itemsToImg[img.name])
-    .map(img => ({category: categoryIDs[itemsToImg[img.name].category], name: itemsToImg[img.name].name, price: itemsToImg[img.name].price, image: img._id}));
+    .map(img => {
+      const { name:imgName, _id:image } = img;
+      const item = itemsToImg[imgName];
+      const { category, name, price } = item;
+      return ({category: categoryIDs[category], name, price, image });
+    });
     console.log(JSON.stringify(itemsToInsert))
     const insertedItems = await Item.insertMany(itemsToInsert);
-
 
 
     console.log(`Data imported successfully`.bgGreen);
