@@ -16,11 +16,11 @@ connectDB(); //connect to our db cluster in Mongodb.com
 
 const DROP_DATA = '-d';
 
-const categoriesImages = [
-  { 'Bakery': 'f3fbf57b118fa9' },
-  { 'Entrees': 'b271afbefdc554' },
-  { 'Drinks': 'eba73b2361fae3' }
-];
+const categoriesImages = {
+  'f3fbf57b118fa9': 'Bakery',
+  'b271afbefdc554': 'Entrees',
+  'eba73b2361fae3': 'Drinks'
+};
 
 const importData = async () => {
   try {
@@ -28,7 +28,13 @@ const importData = async () => {
     await Image.deleteMany();
     await Item.deleteMany();
 
-    const createdImages = await Image.insertMany(images)
+    const createdImages = await Image.insertMany(images);
+
+    const catsToInsert = createdImages.filter(img => {
+      return categoriesImages[img.name];
+    }).map(catImg => ({ name: categoriesImages[catImg.name], image: catImg._id }));
+    console.log(`matched cats to imgs: ${JSON.stringify(catsToInsert)}`)
+    const createdCategories = await Category.insertMany(catsToInsert);
 
     console.log(`Data imported successfully`.bgGreen);
     process.exit();

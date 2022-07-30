@@ -9,7 +9,7 @@ const categorySchema = mongoose.Schema({
   },
   'image': {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    required: false,
     ref: 'Image'
   },
 }, { timestamps: true });
