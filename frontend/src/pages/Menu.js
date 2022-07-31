@@ -1,29 +1,32 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { listCategories } from '../actions/categoryActions';
 
 import Items from '../components/Items';
 import Orders from '../components/Orders';
 
 const Menu = () => {
-  const [categoriesItems, setCategoriesItems] = useState();
+  const dispatch = useDispatch();
+
+  const categoryList = useSelector(state => state.categoryList);
+  const { loading, error, categories } = categoryList;
+
 
   useEffect(() => {
-    const fetchCatsItems = async () => {
-      const result = await axios.get('/api/categories/items');
-      setCategoriesItems(result.data);
-    };
-
-    fetchCatsItems();
-  }, []);
-
-  if (!categoriesItems) {
-    return <>Loading...</>
-  }
+    dispatch(listCategories());
+  }, [dispatch]);
 
   return (
     <main className="relative min-h-screen bg-dark-chopping-board bg-no-repeat bg-cover bg-fixed" id="tabs">
-      <Items categoriesItems={categoriesItems} />
-      <Orders />
+      {
+        (loading || categories.length === 0) ? (<h2>Loading...</h2>) : error ? (<h2>{error}</h2>) : (
+          <>
+            <Items categoriesItems={categories} />
+            <Orders />
+          </>
+        )
+
+      }
     </main>
   )
 };
