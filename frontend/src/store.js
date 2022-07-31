@@ -2,7 +2,11 @@ import { legacy_createStore as createStore , combineReducers, applyMiddleware } 
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const reducer = combineReducers({});
+import { categoryListReducer } from './reducers/categoryReducers';
+
+const reducer = combineReducers({
+  categoryList: categoryListReducer
+});
 
 const initialState = {};
 
