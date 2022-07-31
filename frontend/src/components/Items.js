@@ -8,10 +8,10 @@ const Items = ({categoriesItems}) => {
   const { categories, items:allItems } = categoriesItems;
 
   useEffect(() => {
-    const id = Date.now() * -1;
+    const _id = Date.now() * -1;
     setActiveCats([
       {
-        id,
+        _id,
         name: 'All',
         isActive: true,
         numOfTabs: categories.length + 1
@@ -22,10 +22,8 @@ const Items = ({categoriesItems}) => {
   }, [categories, allItems])
 
   const setActiveCategory = (catId) => {
-    const normalizedCatId = Number(catId);
     const newCats = activeCats.map(cat => {
-      if (cat.id === normalizedCatId) {
-        // console.log('found categorty id: %s', catId)
+      if (cat._id == catId) {
         cat.isActive = true;
       } else {
         cat.isActive = false;
@@ -33,14 +31,14 @@ const Items = ({categoriesItems}) => {
       return cat;
     });
     setActiveCats(newCats);
-    setItems(normalizedCatId);
+    setItems(catId);
   };
 
   const setItems = (activeCatId) => {
     console.log('current cat id: %s', activeCatId)
     const newItems = activeCatId < 0 ? allItems : allItems.filter(item => {
-      const {category_id: itemCatId } = item;
-      return itemCatId === activeCatId;
+      const {category} = item;
+      return category == activeCatId;
     });
     // console.log('item cat ID: %s', activeCatId)
     // console.log(newItems)

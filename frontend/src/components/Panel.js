@@ -1,5 +1,5 @@
 const Panel = ({item, numOfItems}) => {
-  const { category_id:catId, id:itemId, image, name, price } = item;
+  const { category:catId, _id:itemId, image, name, price } = item;
   const imgSrc = `images/${image.name}.jpg`;
   const normalizedPrice = (price || 0).toFixed(2);
   const itemSize = 2;

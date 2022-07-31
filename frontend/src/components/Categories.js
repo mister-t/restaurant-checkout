@@ -6,8 +6,8 @@ const Categories = ({activeCats, setActiveCategory}) => {
     <div className="flex flex-col mx-auto mb-6 md:flex-row">
       {activeCats.map((cat, idx) => (
         <Category
-          key={cat.id}
-          catId={cat.id}
+          key={cat._id}
+          catId={cat._id}
           catName={cat.name}
           isActive={cat.isActive}
           numOfTabs={activeCats.length}
