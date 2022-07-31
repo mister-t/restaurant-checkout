@@ -10,7 +10,7 @@ const handleClick = (evt, setActiveCategory) => {
 export default class Category extends Component {
   static defaultProps = {
     catName: 'All',
-    catId: -1,
+    catId: '-1',
     numOfTabs: 0,
     isActive: false
   };
@@ -27,7 +27,7 @@ export default class Category extends Component {
 
 Category.propTypes = {
   catName: PropTypes.string,
-  catId: PropTypes.number,
+  catId: PropTypes.string,
   numOfTabs: PropTypes.number,
   isActive: PropTypes.bool,
   setActiveCategory: PropTypes.func
