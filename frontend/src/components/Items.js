@@ -23,7 +23,7 @@ const Items = ({categoriesItems}) => {
 
   const setActiveCategory = (catId) => {
     const newCats = activeCats.map(cat => {
-      if (cat._id == catId) {
+      if (cat._id === catId) {
         cat.isActive = true;
       } else {
         cat.isActive = false;
