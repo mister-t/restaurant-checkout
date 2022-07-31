@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const imageSchema = mongoose.Schema({
+export const ImageSchema = mongoose.Schema({
   'name': {
     type: String,
     unique: true,
@@ -9,6 +9,6 @@ const imageSchema = mongoose.Schema({
   }
 }, { timestamps: true });
 
-const Image = mongoose.model('Image', imageSchema);
+const Image = mongoose.model('Image', ImageSchema);
 
 export default Image;

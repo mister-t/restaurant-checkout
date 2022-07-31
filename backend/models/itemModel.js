@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { ImageSchema } from './imageModel.js';
 
 const itemSchema = mongoose.Schema({
   'category': {
@@ -11,11 +12,7 @@ const itemSchema = mongoose.Schema({
     trim: true,
     required: true
   },
-  'image': {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: 'Image'
-  },
+  'image': ImageSchema,
   'price': {
     type: Number,
     required: true,
