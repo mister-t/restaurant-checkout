@@ -35,13 +35,9 @@ const Items = ({categoriesItems}) => {
   };
 
   const setItems = (activeCatId) => {
-    console.log('current cat id: %s', activeCatId)
     const newItems = activeCatId < 0 ? allItems : allItems.filter(item => {
-      const {category} = item;
-      return category == activeCatId;
+      return item.category === activeCatId;
     });
-    // console.log('item cat ID: %s', activeCatId)
-    // console.log(newItems)
     setActiveItems(newItems);
   };
 
