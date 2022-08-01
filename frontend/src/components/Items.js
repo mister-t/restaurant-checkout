@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listItems } from '../actions/itemActions';
 import { getActiveCategory } from '../actions/categoryActions';
 
+import { DEFAULT_CATEGORY_NAME } from '../constants';
+
 import Panels from './Panels'
 import Spinner from './Spinner';
 
@@ -17,7 +19,7 @@ const Items = () => {
   if (activeCategory && !activeCategory.activeCategoryId) {
     //when no active category is set, list 'All' items
     defaultCategoryId = null;
-  } else if (activeCategory && activeCategory.activeCategoryId && activeCategory.activeCategoryName !== 'All') {
+  } else if (activeCategory && activeCategory.activeCategoryId && activeCategory.activeCategoryName.toLowerCase() !== DEFAULT_CATEGORY_NAME.toLowerCase()) {
     defaultCategoryId = activeCategory.activeCategoryId;
   }
 
