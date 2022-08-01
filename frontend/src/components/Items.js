@@ -38,7 +38,6 @@ const Items = ({categoriesItems}) => {
 
   return (
     <section className="w-screen mx-auto">
-      <Categories activeCats={activeCats} setActiveCategory={setActiveCategory} />
       <Panels panels={activeItems}/>
     </section>
   )

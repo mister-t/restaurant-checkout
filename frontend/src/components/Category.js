@@ -11,7 +11,6 @@ export default class Category extends Component {
   static defaultProps = {
     catName: 'All',
     catId: String(Date.now()),
-    numOfTabs: 0,
     isActive: false
   };
 
@@ -28,7 +27,6 @@ export default class Category extends Component {
 Category.propTypes = {
   catName: PropTypes.string,
   catId: PropTypes.string,
-  numOfTabs: PropTypes.number,
   isActive: PropTypes.bool,
   setActiveCategory: PropTypes.func
 };
