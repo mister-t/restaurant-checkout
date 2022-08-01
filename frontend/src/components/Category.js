@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 const handleClick = (evt, setActiveCategoryId) => {
   evt.preventDefault();
-  console.log(evt.target.getAttribute('data-target'));
-  setActiveCategoryId(evt.target.getAttribute('data-target'));
+  const catId = evt.target.getAttribute('data-target');
+  console.log(catId);
+  setActiveCategoryId(catId);
 }
 
 export default class Category extends Component {
