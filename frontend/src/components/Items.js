@@ -8,10 +8,9 @@ const Items = ({categoriesItems}) => {
   const { categories, items:allItems } = categoriesItems;
 
   useEffect(() => {
-    const _id = Date.now() * -1;
     setActiveCats([
       {
-        _id,
+        _id: String(Date.now() * -1),
         name: 'All',
         isActive: true,
         numOfTabs: categories.length + 1
@@ -23,11 +22,7 @@ const Items = ({categoriesItems}) => {
 
   const setActiveCategory = (catId) => {
     const newCats = activeCats.map(cat => {
-      if (cat._id === catId) {
-        cat.isActive = true;
-      } else {
-        cat.isActive = false;
-      }
+      cat._id === catId ? cat.isActive = true : cat.isActive = false;
       return cat;
     });
     setActiveCats(newCats);
