@@ -20,12 +20,12 @@ const Categories = () => {
     <div className="flex flex-col mx-auto mb-6 md:flex-row">
       {
         (loading || categories.length === 0) ? ( <Spinner />) : error ? (<h2>{error}</h2>) : (
-          categories.map((cat, idx) => (
+          categories.map((cat) => (
             <Category
               key={cat._id}
               catId={cat._id}
               catName={cat.name}
-              isActive={activeCategoryId === cat._id}
+              isActive={activeCategoryId === cat._id ? true : activeCategoryId === '' && cat.name === 'All' }
               setActiveCategoryId={setActiveCategoryId}
               />
             )

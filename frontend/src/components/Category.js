@@ -3,17 +3,11 @@ import React, { Component } from 'react'
 
 const handleClick = (evt, setActiveCategoryId) => {
   evt.preventDefault();
-  console.log(evt.target.getAttribute('data-target'))
-  setActiveCategoryId(evt.target.getAttribute('data-target'))
+  console.log(evt.target.getAttribute('data-target'));
+  setActiveCategoryId(evt.target.getAttribute('data-target'));
 }
 
 export default class Category extends Component {
-  static defaultProps = {
-    catName: 'All',
-    catId: String(Date.now()),
-    isActive: false
-  };
-
   render() {
     const { catId, catName, isActive } = this.props;
     const classNames = `grow text-xl text-center py-5 text-white cursor-pointer ${isActive ? "bg-softBlue border-b md:border-b-0 " : "border-b-8 border-softBlue"}`;
