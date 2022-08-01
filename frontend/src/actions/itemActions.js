@@ -11,11 +11,12 @@ import {
   ROUTE_GET_ITEMS_BY_CATEGORY
 } from '../constants/';
 
-export const listItems = () => async (dispatch) => {
+export const listItems = (categoryId) => async (dispatch) => {
   try {
     dispatch({ type: ITEM_LIST_REQUEST });
 
-    const { data } = await axios.get(ROUTE_GET_ITEMS);
+    const apiRoute = categoryId ? `${ROUTE_GET_ITEMS_BY_CATEGORY}/${categoryId}` : ROUTE_GET_ITEMS;
+    const { data } = await axios.get(apiRoute);
 
     dispatch({
       type: ITEM_LIST_SUCCESS,

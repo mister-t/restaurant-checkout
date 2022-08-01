@@ -8,7 +8,7 @@ const Category = ({ catId, catName, isActive }) => {
     evt.preventDefault();
     const catId = evt.target.getAttribute('data-target');
     console.log(catId);
-    dispatch(setActiveCategory(catId));
+    dispatch(setActiveCategory({ activeCategoryId: catId, activeCategoryName: catName }));
   }
 
   const classNames = `grow text-xl text-center py-5 text-white cursor-pointer ${isActive ? "bg-softBlue border-b md:border-b-0 " : "border-b-8 border-softBlue"}`;

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { listItems } from '../actions/itemActions';
+import { getActiveCategory } from '../actions/categoryActions';
 
 import Panels from './Panels'
 import Spinner from './Spinner';
@@ -11,16 +12,26 @@ const Items = () => {
   const itemList = useSelector(state => state.itemList);
   const { loading, error, items } = itemList;
 
+  const activeCategory = useSelector(state => state.activeCategory);
+  let defaultCategoryId;
+  if (activeCategory && !activeCategory.activeCategoryId) {
+    //when no active category is set, list 'All' items
+    defaultCategoryId = null;
+  } else if (activeCategory && activeCategory.activeCategoryId && activeCategory.activeCategoryName !== 'All') {
+    defaultCategoryId = activeCategory.activeCategoryId;
+  }
+
   useEffect(() => {
-    dispatch(listItems());
-  }, [dispatch]);
+    dispatch(listItems(defaultCategoryId));
+    dispatch(getActiveCategory());
+  }, [dispatch, defaultCategoryId]);
 
   return (
     <section className="w-screen mx-auto">
       {
-        loading || !items.length ? <Spinner /> : error ? <h2>{error}</h2> : <Panels panels={items}/>
+        loading || !items.length ? <Spinner /> : error ? <h2>{error}</h2> : <Panels panels={items} />
       }
-      
+
     </section>
   )
 }

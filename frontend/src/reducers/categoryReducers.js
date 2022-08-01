@@ -20,14 +20,15 @@ export const categoryListReducer = (state = { categories: [] }, action) => {
   }
 };
 
-export const activeCategoryReducer = (state = { activeCategoryId: '' }, action) => {
+export const activeCategoryReducer = (state = { activeCategoryId: '', activeCategoryName: '' }, action) => {
   switch (action.type) {
     case GET_ACTIVE_CATEGORY:
-      return { activeCategoryId: state.activeCategoryId };
+      return { activeCategoryId: state.activeCategoryId, activeCategoryName: state.activeCategoryName };
     case SET_ACTIVE_CATEGORY:
-      return { activeCategoryId: action.payload };
+      const { activeCategoryId, activeCategoryName } = action.payload;
+      return { activeCategoryId, activeCategoryName };
     case RESET_ACTIVE_CATEGORY:
-      return { activeCategoryId: '' };
+      return { activeCategoryId: '', activeCategoryName: '' };
     default:
       return state;
   }

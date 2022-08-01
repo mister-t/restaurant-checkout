@@ -40,9 +40,9 @@ export const getActiveCategory = () => async (dispatch, getState) => {
   }
 };
 
-export const setActiveCategory = (activeCategoryId) => async (dispatch) => {
+export const setActiveCategory = ({ activeCategoryId, activeCategoryName }) => async (dispatch) => {
   try {
-    dispatch({ type: SET_ACTIVE_CATEGORY, payload: activeCategoryId });
+    dispatch({ type: SET_ACTIVE_CATEGORY, payload: { activeCategoryId, activeCategoryName } });
   } catch (err) {
     dispatch({
       type: SET_ACTIVE_CATEGORY,
