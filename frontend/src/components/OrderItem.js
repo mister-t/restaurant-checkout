@@ -1,7 +1,11 @@
 import React from 'react'
 
-const Order = ({ order }) => {
-  const { name, description, price } = order;
+const Order = ({ id, name, description, price }) => {
+  const onClickHandler = (evt) => {
+    evt.preventDefault();
+    console.log(`order item #${id}button clicked`);
+  };
+
   return (
     <article className="relative flex flex-col border p-4">
       <div className="flex justify-between">
@@ -9,7 +13,7 @@ const Order = ({ order }) => {
         <h2 className="pr-5">${price.toFixed(2)}</h2>
       </div>
       <p className="text-slate-400">{description}</p>
-      <div className="absolute bottom-0 right-0 w-11 overflow-hidden inline-block">
+      <div className="absolute bottom-0 right-0 w-11 overflow-hidden inline-block cursor-pointer" onClick={onClickHandler}>
         <div className="h-16 bg-slate-200 rotate-45 transform origin-bottom-left"><div className="-rotate-45 w-16 text-slate-400">x</div></div>
       </div>
     </article>
