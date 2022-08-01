@@ -1,26 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listCategories, getActiveCategory, setActiveCategory } from '../actions/categoryActions';
 
+import { DEFAULT_CATEGORY_NAME } from '../constants';
 import Category from '../components/Category';
 
 const Categories = () => {
-  const [activeCategoryId, setActiveCategoryId] = useState('');
+  const [isActiveCategory, setIsActiveCategory] = useState(false);
   const dispatch = useDispatch();
 
   const categoryList = useSelector(state => state.categoryList);
   const { loading, error, categories } = categoryList;
 
   const activeCategory = useSelector(state => state.activeCategory);
-  if (!activeCategory.activeCategoryId && categories && categories.length) {
-    const defaultCategory = categories.find(cat => cat.name === 'All');
-    console.log(`all category info: ${JSON.stringify(defaultCategory)}`)
-    dispatch(setActiveCategory(defaultCategory._id));
-  }
+
+  // if (!activeCategory.activeCategoryId && categories && categories.length) {
+  //   const defaultCategory = categories.find(cat => cat.name.toLowerCase() === DEFAULT_CATEGORY_NAME.toLowerCase());
+  //   dispatch(setActiveCategory(defaultCategory._id));
+  // setIsActiveCategory(true);
+  // }
 
   useEffect(() => {
     dispatch(listCategories());
-    dispatch(getActiveCategory());
+    // dispatch(getActiveCategory());
   }, [dispatch]);
 
   return (
@@ -32,8 +34,7 @@ const Categories = () => {
               key={cat._id}
               catId={cat._id}
               catName={cat.name}
-              isActive={activeCategoryId === cat._id ? true : activeCategoryId === '' && cat.name === 'All'}
-              setActiveCategoryId={setActiveCategoryId}
+              isActive={isActiveCategory}
             />
           )
           )

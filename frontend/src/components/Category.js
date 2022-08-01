@@ -1,27 +1,37 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getActiveCategory, setActiveCategory } from '../actions/categoryActions';
 
-const handleClick = (evt, setActiveCategoryId) => {
-  evt.preventDefault();
-  const catId = evt.target.getAttribute('data-target');
-  console.log(catId);
-  setActiveCategoryId(catId);
-}
+const Category = ({ catId, catName, isActive }) => {
+  const dispatch = useDispatch();
 
-export default class Category extends Component {
-  render() {
-    const { catId, catName, isActive } = this.props;
-    const classNames = `grow text-xl text-center py-5 text-white cursor-pointer ${isActive ? "bg-softBlue border-b md:border-b-0 " : "border-b-8 border-softBlue"}`;
-
-    return (
-      <div className={classNames} data-target={catId} onClick={(evt) => handleClick(evt, this.props.setActiveCategoryId)}>{catName}</div>
-    );
+  const handleClick = (evt) => {
+    evt.preventDefault();
+    const catId = evt.target.getAttribute('data-target');
+    console.log(catId);
+    // setIsActive(true);
   }
+
+  // const activeCategory = useSelector(state => state.activeCategory);
+  // if (activeCategory && !!activeCategory.activeCategoryId
+  //   && catId === activeCategory.activeCategoryId) {
+  //   console.log(`Category '${catName}' is the active category`)
+  //   // setIsActive(true);
+  // }
+
+  useEffect(() => {
+    // dispatch(getActiveCategory());
+
+    // if (isActive) {
+    //   dispatch(setActiveCategory(catId));
+    // }
+  }, [dispatch, isActive, catId]);
+
+  const classNames = `grow text-xl text-center py-5 text-white cursor-pointer ${isActive ? "bg-softBlue border-b md:border-b-0 " : "border-b-8 border-softBlue"}`;
+
+  return (
+    <div className={classNames} data-target={catId} onClick={(evt) => handleClick(evt)}>{catName}</div>
+  );
 }
 
-Category.propTypes = {
-  catName: PropTypes.string,
-  catId: PropTypes.string,
-  isActive: PropTypes.bool,
-  setActiveCategoryId: PropTypes.func
-};
+export default Category;
