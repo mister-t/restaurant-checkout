@@ -29,7 +29,7 @@ const Items = () => {
   }, [dispatch, defaultCategoryId]);
 
   return (
-    <section className="w-screen mx-auto">
+    <section className="w-screen h-screen mx-auto">
       {
         loading || !items.length ? <Spinner /> : error ? <h2>{error}</h2> : <Panels panels={items} />
       }
