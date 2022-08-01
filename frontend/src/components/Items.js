@@ -5,7 +5,7 @@ import { getActiveCategory } from '../actions/categoryActions';
 
 import { DEFAULT_CATEGORY_NAME } from '../constants';
 
-import Panels from './Panels'
+import Item from './Item';
 import Spinner from './Spinner';
 
 const Items = () => {
@@ -31,7 +31,10 @@ const Items = () => {
   return (
     <section className="w-screen h-screen mx-auto">
       {
-        loading || !items.length ? <Spinner /> : error ? <h2>{error}</h2> : <Panels panels={items} />
+        loading || !items.length ? <Spinner /> : error ? <h2>{error}</h2> :
+          <div id="panels" className="h-screen flex flex-col gap-20 justify-center md:flex-row md:flex-wrap overflow-y-scroll">
+            {items.map(item => <Item key={item._id} item={item} numOfItems={items.length} />)}
+          </div>
       }
 
     </section>
