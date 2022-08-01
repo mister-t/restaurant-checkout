@@ -6,7 +6,6 @@ import { DEFAULT_CATEGORY_NAME } from '../constants';
 import Category from '../components/Category';
 
 const Categories = () => {
-  const [isActiveCategory, setIsActiveCategory] = useState(false);
   const dispatch = useDispatch();
 
   const categoryList = useSelector(state => state.categoryList);
@@ -14,15 +13,18 @@ const Categories = () => {
 
   const activeCategory = useSelector(state => state.activeCategory);
 
-  // if (!activeCategory.activeCategoryId && categories && categories.length) {
-  //   const defaultCategory = categories.find(cat => cat.name.toLowerCase() === DEFAULT_CATEGORY_NAME.toLowerCase());
-  //   dispatch(setActiveCategory(defaultCategory._id));
-  // setIsActiveCategory(true);
-  // }
+  let defaultCategoryId;
+  if (!activeCategory.activeCategoryId && categories && categories.length) {
+    const { _id } = categories.find(cat => cat.name.toLowerCase() === DEFAULT_CATEGORY_NAME.toLowerCase());
+    console.log(`defeault category is ${_id}`)
+    defaultCategoryId = _id;
+    // dispatch(setActiveCategory(defaultCategory._id));
+    // setIsActiveCategory(true);
+  }
 
   useEffect(() => {
     dispatch(listCategories());
-    // dispatch(getActiveCategory());
+    dispatch(getActiveCategory());
   }, [dispatch]);
 
   return (
@@ -34,7 +36,7 @@ const Categories = () => {
               key={cat._id}
               catId={cat._id}
               catName={cat.name}
-              isActive={isActiveCategory}
+              isActive={defaultCategoryId === cat._id}
             />
           )
           )
