@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listCategories, getActiveCategory, setActiveCategory } from '../actions/categoryActions';
+import { listCategories, getActiveCategory } from '../actions/categoryActions';
 
 import { DEFAULT_CATEGORY_NAME } from '../constants';
 import Category from '../components/Category';
@@ -14,12 +14,12 @@ const Categories = () => {
   const activeCategory = useSelector(state => state.activeCategory);
 
   let defaultCategoryId;
-  if (!activeCategory.activeCategoryId && categories && categories.length) {
+  if (activeCategory && !activeCategory.activeCategoryId && categories && categories.length) {
+    //when no active category is set, 'All' is the default category
     const { _id } = categories.find(cat => cat.name.toLowerCase() === DEFAULT_CATEGORY_NAME.toLowerCase());
-    console.log(`defeault category is ${_id}`)
     defaultCategoryId = _id;
-    // dispatch(setActiveCategory(defaultCategory._id));
-    // setIsActiveCategory(true);
+  } else if (activeCategory && activeCategory.activeCategoryId && categories && categories.length) {
+    defaultCategoryId = activeCategory.activeCategoryId;
   }
 
   useEffect(() => {
