@@ -6,8 +6,9 @@ const Menu = () => {
   return (
     <main className="relative min-h-screen bg-dark-chopping-board bg-no-repeat bg-cover bg-fixed" id="tabs">
       <Categories />
-      {/* <Items />
-      <Orders /> */}
+      <Items />
+      
+      <Orders />
     </main>
   )
 };

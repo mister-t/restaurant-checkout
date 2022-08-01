@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { CATEGORY_LIST_REQUEST, CATEGORY_LIST_SUCCESS, CATEGORY_LIST_FAIL } from '../constants/categoryConstants';
+import { CATEGORY_LIST_REQUEST, CATEGORY_LIST_SUCCESS, CATEGORY_LIST_FAIL } from '../constants/';
 
 export const listCategories = () => async (dispatch) => {
   try {

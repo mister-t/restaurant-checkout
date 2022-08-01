@@ -3,9 +3,11 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { categoryListReducer } from './reducers/categoryReducers';
+import { itemListReducer } from './reducers/itemReducers';
 
 const reducer = combineReducers({
-  categoryList: categoryListReducer
+  categoryList: categoryListReducer,
+  itemList: itemListReducer,
 });
 
 const initialState = {};

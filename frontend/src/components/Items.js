@@ -1,44 +1,26 @@
-import { useState, useEffect } from 'react'
-import Categories from './Categories'
-import Panels from './Panels'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { listItems } from '../actions/itemActions';
 
-const Items = ({categoriesItems}) => {
-  const [activeItems, setActiveItems] = useState([]);
-  const [activeCats, setActiveCats] = useState([])
-  const { categories, items:allItems } = categoriesItems;
+import Panels from './Panels'
+import Spinner from './Spinner';
+
+const Items = () => {
+  const dispatch = useDispatch();
+
+  const itemList = useSelector(state => state.itemList);
+  const { loading, error, items } = itemList;
 
   useEffect(() => {
-    setActiveCats([
-      {
-        _id: String(Date.now() * -1),
-        name: 'All',
-        isActive: true,
-        numOfTabs: categories.length + 1
-      }, ...categories
-    ]);
-
-    setActiveItems(allItems);
-  }, [categories, allItems])
-
-  const setActiveCategory = (catId) => {
-    const newCats = activeCats.map(cat => {
-      cat._id === catId ? cat.isActive = true : cat.isActive = false;
-      return cat;
-    });
-    setActiveCats(newCats);
-    setItems(catId);
-  };
-
-  const setItems = (activeCatId) => {
-    const newItems = activeCatId < 0 ? allItems : allItems.filter(item => {
-      return item.category === activeCatId;
-    });
-    setActiveItems(newItems);
-  };
+    dispatch(listItems());
+  }, [dispatch]);
 
   return (
     <section className="w-screen mx-auto">
-      <Panels panels={activeItems}/>
+      {
+        loading || !items.length ? <Spinner /> : error ? <h2>{error}</h2> : <Panels panels={items}/>
+      }
+      
     </section>
   )
 }
