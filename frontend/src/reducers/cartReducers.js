@@ -1,6 +1,7 @@
 import {
   ADD_ITEM_TO_CART,
-  REMOVE_ITEM_FROM_CART
+  REMOVE_ITEM_FROM_CART,
+  CLEAR_CART,
 } from '../constants';
 
 export const cartReducer = (state = { items: [], total: 0 }, action) => {
@@ -20,6 +21,12 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
         items: cartItems,
         total: cartItems.reduce((acc, item) => acc + item.price, 0)
       }
+    case CLEAR_CART:
+      return {
+        ...state,
+        items: [],
+        total: 0
+      };
     default:
       return state;
   }

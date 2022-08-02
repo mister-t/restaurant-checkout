@@ -1,8 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { clearCart } from '../actions/cartActions';
+
 const OrderCancel = () => {
+  const dispatch = useDispatch();
 
   const onClickHandler = (evt) => {
     evt.preventDefault();
-    console.log(`order is cancelled`);
+    dispatch(clearCart());
   };
 
   return (

@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { REMOVE_ITEM_FROM_CART } from '../constants';
 import { removeItemFromCart } from '../actions/cartActions';
 
 const Order = ({ id, name, description, price }) => {
@@ -8,7 +7,6 @@ const Order = ({ id, name, description, price }) => {
   const onRemoveItemHandler = (evt) => {
     evt.preventDefault();
     console.log(`order item #${id} button clicked`);
-    // dispatch({ type: REMOVE_ITEM_FROM_CART, payload: { id, name, description, price } })
     dispatch(removeItemFromCart({ name, id }));
   };
 
