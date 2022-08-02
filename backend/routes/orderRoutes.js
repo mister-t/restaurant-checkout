@@ -25,6 +25,25 @@ router.get('/:id', asyncHandler(async (req, res) => {
     throw new Error(`Order, with ID ${id}, not found`);
   }
 }));
+// router.route('/').post(protect, addOrderItems).get(protect, admin, getOrders)
+router.post('/', asyncHandler(async (req, res) => {
+  const { orderItems, payment, totalAmount } = req.body;
+
+  if (orderItems && orderItems.length === 0) {
+    res.status(404);
+    throw new Error('No order items found');
+    return;
+  } else {
+    const order = new Order({
+      orderItems,
+      payment,
+      totalAmount
+    });
+
+    const createdOrder = await order.save();
+    res.status(201).json(createdOrder);
+  }
+}));
 
 export default router;
 
