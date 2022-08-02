@@ -7,7 +7,16 @@ import {
 export const cartReducer = (state = { items: [], total: 0 }, action) => {
   switch (action.type) {
     case ADD_ITEM_TO_CART:
-      const addedItems = [action.payload, ...state.items];
+      const idx = state.items.findIndex(item => item.id === action.payload.id);
+      let addedItems;
+      if (idx > -1) {
+        //update the qty of the current object
+        state.items[idx].qty++;
+        addedItems = [...state.items]
+      } else {
+        //add the new item to the items array
+        addedItems = [{ ...action.payload, qty: 1 }, ...state.items];
+      }
       return {
         items: addedItems,
         total: addedItems.reduce((acc, item) => acc + item.price, 0)

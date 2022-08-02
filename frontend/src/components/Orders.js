@@ -11,7 +11,7 @@ const Orders = () => {
     <section className="flex flex-col w-screen max-h-52 mx-auto md:flex-row">
       <div className="w-2/3 mx-0 p-1 bg-white/90 overflow-y-scroll">
         {
-          items.length ? items.map(item => <OrderItem key={item.id} name={item.name} id={item.id} description={item.description} price={item.price} />) : <div className='h-full flex items-center justify-center'><h1 className='text-5xl text-darkSlate text-opacity-30'>Please add items</h1></div>
+          items.length ? items.map(item => <OrderItem key={item.id} name={item.name} id={item.id} description={item.description} price={item.price} qty={item.qty} />) : <div className='h-full flex items-center justify-center'><h1 className='text-5xl text-darkSlate text-opacity-30'>Please add items</h1></div>
         }
       </div>
       <div className="w-1/3">
