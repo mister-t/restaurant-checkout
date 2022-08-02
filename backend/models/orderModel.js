@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
-import { itemSchema } from './itemModel.js';
 
 const orderSchema = mongoose.Schema({
   'orderItems': [
     {
-      'item': itemSchema,
-      'quantity': { type: Number, required: true },
+      'id': { type: String, required: true },
+      'name': { type: String, trim: true, required: true },
+      'price': { type: Number, required: true },
+      'quantity': { type: Number, required: true }
     }
   ],
   'payment': {
@@ -15,9 +16,7 @@ const orderSchema = mongoose.Schema({
     'expirationYear': { type: Number, required: true },
     'cvc': { type: Number, required: true },
   },
-  'totalAmount': {
-    type: Number, required: true
-  },
+  'totalAmount': { type: Number, required: true },
 }, { timestamps: true });
 
 const Order = mongoose.model('Order', orderSchema);

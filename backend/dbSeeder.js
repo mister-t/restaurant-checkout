@@ -60,6 +60,7 @@ const dropData = async () => {
     await Category.deleteMany();
     await Image.deleteMany();
     await Item.deleteMany();
+    await Order.deleteMany();
 
     console.log(`Data deleted successfuly`.bgGreen);
     process.exit();
