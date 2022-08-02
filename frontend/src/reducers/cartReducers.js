@@ -1,6 +1,8 @@
 import {
   ADD_ITEM_TO_CART,
+  INCREMENT_ITEM_QTY,
   REMOVE_ITEM_FROM_CART,
+  DECREMENT_ITEM_QTY,
   CLEAR_CART,
 } from '../constants';
 
@@ -21,6 +23,11 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
         items: addedItems,
         total: addedItems.reduce((acc, item) => acc + item.price, 0)
       };
+    case INCREMENT_ITEM_QTY:
+      console.log(`incrementing item ${action.payload}`)
+      return {
+        ...state
+      };
     case REMOVE_ITEM_FROM_CART:
       const cartItems = state.items.filter(item => {
         return item.id !== action.payload.id
@@ -29,6 +36,11 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
         ...state,
         items: cartItems,
         total: cartItems.reduce((acc, item) => acc + item.price, 0)
+      }
+    case DECREMENT_ITEM_QTY:
+      console.log(`decrementing item ${action.payload}`)
+      return {
+        ...state,
       }
     case CLEAR_CART:
       return {

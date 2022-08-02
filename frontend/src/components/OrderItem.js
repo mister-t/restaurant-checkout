@@ -1,13 +1,22 @@
 import { useDispatch } from 'react-redux';
-import { removeItemFromCart } from '../actions/cartActions';
+import { removeItemFromCart, incrementItemQty, decrementItemQty } from '../actions/cartActions';
 
 const Order = ({ id, name, description, price, qty }) => {
   const dispatch = useDispatch();
 
   const onRemoveItemHandler = (evt) => {
     evt.preventDefault();
-    console.log(`order item #${id} button clicked`);
     dispatch(removeItemFromCart({ name, id }));
+  };
+
+  const onDecrementHandler = (evt) => {
+    evt.preventDefault();
+    dispatch(decrementItemQty(id));
+  };
+
+  const onIncrementHandler = (evt) => {
+    evt.preventDefault();
+    dispatch(incrementItemQty(id));
   };
 
   return (
@@ -15,9 +24,9 @@ const Order = ({ id, name, description, price, qty }) => {
       <div className="flex justify-between">
         <h1 className="text-xl font-bold">{name}</h1>
         <span className="flex items-center justify-center mr-16">
-          <span className='inline-block h-10 w-10 text-3xl text-white text-center rounded-full bg-darkSlate'>-</span>
+          <span className='inline-block h-10 w-10 text-3xl text-white text-center rounded-full bg-darkSlate cursor-pointer' onClick={onDecrementHandler}>-</span>
           <span className="px-5">${price.toFixed(2)} X {qty}</span>
-          <span className='inline-block h-10 w-10 text-3xl text-white text-center rounded-full bg-darkSlate'>+</span>
+          <span className='inline-block h-10 w-10 text-3xl text-white text-center rounded-full bg-darkSlate cursor-pointer' onClick={onIncrementHandler}>+</span>
         </span>
       </div>
       <p className="text-slate-400">{description}</p>
