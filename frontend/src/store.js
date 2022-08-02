@@ -10,7 +10,7 @@ const reducer = combineReducers({
   categoryList: categoryListReducer,
   activeCategory: activeCategoryReducer, //need to create this reducer; otherwise, combineReducer is going to throw an error even though the property might have been specified in 'initialState'
   itemList: itemListReducer,
-  itemsByCategoryList: itemsByCategoryReducer,
+  // itemsByCategoryList: itemsByCategoryReducer,
   cart: cartReducer,
 });
 
