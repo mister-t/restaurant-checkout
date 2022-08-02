@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import OrderItem from './OrderItem';
 import OrderCancel from './OrderCancelBtn';
 import OrderSubmitBtn from './OrderSubmitBtn';
-import { useEffect } from 'react';
 
 const Orders = () => {
   const { items } = useSelector(state => state.cart);
