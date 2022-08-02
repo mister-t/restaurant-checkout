@@ -5,11 +5,6 @@ import Item from '../models/itemModel.js';
 
 const router = express.Router();
 
-/*
-  In server.js, app.use(/api/categories, categoryRoutes) to capture
-  all Catetory routes
-*/
-
 // @desc Fetch all categories
 // @route GET /api/categories
 // @access Public
@@ -26,7 +21,7 @@ router.get('/items', asyncHandler(async (req, res) => {
   const items = await Item.find({});
 
   if (categories.length && items.length) {
-    res.json({categories, items});
+    res.json({ categories, items });
   } else {
     res.status(404);
     throw new Error(`Categories and items not found`)

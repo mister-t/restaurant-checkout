@@ -7,6 +7,7 @@ import { urlNotFound, errorHandler } from './middleware/errorMiddleware.js';
 //Routes
 import categoryRoutes from './routes/categoryRoutes.js';
 import itemRoutes from './routes/itemRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 connectDB();
 const PORT = process.env.PORT;
@@ -15,6 +16,7 @@ const app = express();
 
 app.use('/api/categories', categoryRoutes);
 app.use('/api/items', itemRoutes);
+app.use('/api/orders', orderRoutes);
 app.use(urlNotFound);
 app.use(errorHandler);
 
