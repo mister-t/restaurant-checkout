@@ -10,7 +10,7 @@ import { itemsToImg } from './data/items.js';
 import Image from './models/imageModel.js';
 import Category from './models/categoryModel.js';
 import Item from './models/itemModel.js';
-import Order from '../models/orderModel.js';
+import Order from './models/orderModel.js';
 
 import connectDB from './config/db.js';
 connectDB(); //connect to our db cluster in Mongodb.com

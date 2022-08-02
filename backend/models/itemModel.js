@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { ImageSchema } from './imageModel.js';
 
-const itemSchema = mongoose.Schema({
+export const itemSchema = mongoose.Schema({
   'category': {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',

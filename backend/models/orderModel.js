@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import ItemSchema from './itemModel.js';
+import { itemSchema } from './itemModel.js';
 
 const orderSchema = mongoose.Schema({
   'orderItems': [
     {
-      'item': ItemSchema,
+      'item': itemSchema,
       'quantity': { type: Number, required: true },
     }
   ],
@@ -20,6 +20,6 @@ const orderSchema = mongoose.Schema({
   },
 }, { timestamps: true });
 
-const Order = mongoose.model('Order', categorySchema);
+const Order = mongoose.model('Order', orderSchema);
 
 export default Order;
