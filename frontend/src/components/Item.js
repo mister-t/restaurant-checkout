@@ -1,11 +1,26 @@
+import { useDispatch } from 'react-redux';
+import { addItemToCart } from '../actions/cartActions';
+
 const Item = ({ item }) => {
   const { category: catId, _id: itemId, image, name, price } = item;
   const imgSrc = `images/${image.name}.jpg`;
   const normalizedPrice = (price || 0).toFixed(2);
   const itemSize = 2;
 
+  const dispatch = useDispatch();
+
+  const onAddItemToCart = (evt) => {
+    evt.preventDefault();
+    dispatch(addItemToCart({
+      name: evt.currentTarget.getAttribute('data-name'),
+      price: Number(evt.currentTarget.getAttribute('data-price')),
+      id: evt.currentTarget.getAttribute('data-item-id'),
+      imgSrc: evt.currentTarget.getAttribute('data-img-src')
+    }));
+  };
+
   return (
-    <div data-category-id={catId} data-item-id={itemId} className={`basis-1/${itemSize} relative h-40 border-0 flex flex-col justify-center items-center`}>
+    <div data-img-src={imgSrc} data-name={name} data-price={normalizedPrice} data-category-id={catId} data-item-id={itemId} className={`basis-1/${itemSize} relative h-40 border-0 flex flex-col justify-center items-center cursor-pointer`} onClick={onAddItemToCart}>
       <img
         src={imgSrc}
         alt={name}
