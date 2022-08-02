@@ -24,7 +24,10 @@ const Order = ({ id, name, description, price, qty }) => {
       <div className="flex justify-between">
         <h1 className="text-xl font-bold">{name}</h1>
         <span className="flex items-center justify-center mr-16">
-          <span className='inline-block h-10 w-10 text-3xl text-white text-center rounded-full bg-darkSlate cursor-pointer select-none' onClick={onDecrementHandler}>-</span>
+          {
+            qty > 1 && <span className='inline-block h-10 w-10 text-3xl text-white text-center rounded-full bg-darkSlate cursor-pointer select-none' onClick={onDecrementHandler}>-</span>
+
+          }
           <span className="mx-6 w-20">${price.toFixed(2)} X {qty}</span>
           <span className='inline-block h-10 w-10 text-3xl text-white text-center rounded-full bg-darkSlate cursor-pointer select-none' onClick={onIncrementHandler}>+</span>
         </span>
