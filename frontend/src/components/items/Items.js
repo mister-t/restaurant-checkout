@@ -6,7 +6,7 @@ import { getActiveCategory } from '../../actions/categoryActions';
 import { DEFAULT_CATEGORY_NAME } from '../../constants';
 
 import Item from './Item';
-import Spinner from '../Spinner';
+import Spinner from '../utils/Spinner';
 
 const Items = () => {
   const dispatch = useDispatch();
