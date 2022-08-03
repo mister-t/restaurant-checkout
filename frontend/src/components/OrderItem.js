@@ -11,9 +11,9 @@ const Order = ({ id, name, description, price, qty }) => {
   };
 
   return (
-    <article className="relative flex flex-col border p-4">
-      <div className="flex justify-between">
-        <h1 className="text-xl font-bold">{name}</h1>
+    <article className="relative flex flex-col border py-2 md:p-4">
+      <div className="flex justify-start md:justify-between">
+        <h1 className="text-xl font-bold w-20 break-words">{name}</h1>
         <OrderItemPrice id={id} price={price} qty={qty} />
       </div>
       <p className="text-slate-400">{description}</p>
