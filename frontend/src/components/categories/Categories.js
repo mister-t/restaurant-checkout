@@ -30,7 +30,7 @@ const Categories = () => {
   return (
     <section className="flex flex-col mx-auto mb-6 md:flex-row">
       {
-        (loading || categories.length === 0) ? (<h2>Loading...</h2>) : error ? (<h2>{error}</h2>) : (
+        categories && (loading || categories.length === 0) ? (<h2>Loading...</h2>) : error ? (<h2>{error}</h2>) : (
           categories.map((cat) => (
             <Category
               key={cat._id}
