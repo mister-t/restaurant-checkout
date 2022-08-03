@@ -13,17 +13,17 @@ export const addItemToCart = ({ name, price, id, imgSrc, description }) => async
   });
 };
 
-export const incrementItemQty = (id) => async (dispatch) => {
-  dispatch({
-    type: INCREMENT_ITEM_QTY,
-    payload: id
-  });
-};
-
 export const removeItemFromCart = ({ name, id }) => async (dispatch) => {
   dispatch({
     type: REMOVE_ITEM_FROM_CART,
     payload: { name, id }
+  });
+};
+
+export const incrementItemQty = (id) => async (dispatch) => {
+  dispatch({
+    type: INCREMENT_ITEM_QTY,
+    payload: id
   });
 };
 

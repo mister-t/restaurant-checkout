@@ -21,7 +21,7 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
       }
       return {
         items: addedItems,
-        total: addedItems.reduce((acc, item) => acc + item.price, 0)
+        total: addedItems.reduce((acc, item) => acc + item.price * item.qty, 0)
       };
     case INCREMENT_ITEM_QTY:
       console.log(`incrementing item ${action.payload}`)
@@ -36,7 +36,7 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
       }
       return {
         items: foundItems,
-        total: foundItems.reduce((acc, item) => acc + item.price, 0)
+        total: foundItems.reduce((acc, item) => acc + item.price * item.qty, 0)
       };
     case REMOVE_ITEM_FROM_CART:
       const cartItems = state.items.filter(item => {
@@ -45,7 +45,7 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
       return {
         ...state,
         items: cartItems,
-        total: cartItems.reduce((acc, item) => acc + item.price, 0)
+        total: cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
       }
     case DECREMENT_ITEM_QTY:
       console.log(`decrementing item ${action.payload}`)
@@ -61,7 +61,7 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
       return {
         ...state,
         items: decrementItems,
-        total: decrementItems.reduce((acc, item) => acc + item.price, 0)
+        total: decrementItems.reduce((acc, item) => acc + item.price * item.qty, 0)
       }
     case CLEAR_CART:
       return {
