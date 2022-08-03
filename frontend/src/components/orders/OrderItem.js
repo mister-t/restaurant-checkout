@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { removeItemFromCart } from '../actions/cartActions';
+import { removeItemFromCart } from '../../actions/cartActions';
 import OrderItemPrice from './OrderItemPrice';
 
 const Order = ({ id, name, description, price, qty }) => {

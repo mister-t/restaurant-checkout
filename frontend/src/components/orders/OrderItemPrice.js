@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { incrementItemQty, decrementItemQty } from '../actions/cartActions';
+import { incrementItemQty, decrementItemQty } from '../../actions/cartActions';
 
 const OrderItemPrice = ({ id, price, qty }) => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setActiveCategory } from '../actions/categoryActions';
+import { setActiveCategory } from '../../actions/categoryActions';
 
 const Category = ({ catId, catName, isActive }) => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { clearCart } from '../actions/cartActions';
+import { clearCart } from '../../actions/cartActions';
 
 const OrderCancel = () => {
   const dispatch = useDispatch();

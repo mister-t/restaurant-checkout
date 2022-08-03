@@ -1,6 +1,6 @@
-import Categories from '../components/Categories';
-import Items from '../components/Items';
-import Orders from '../components/Orders';
+import Categories from '../components/categories/Categories';
+import Items from '../components/items/Items';
+import Orders from '../components/orders/Orders';
 
 const Menu = () => {
   return (

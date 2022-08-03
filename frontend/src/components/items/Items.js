@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { listItems } from '../actions/itemActions';
-import { getActiveCategory } from '../actions/categoryActions';
+import { listItems } from '../../actions/itemActions';
+import { getActiveCategory } from '../../actions/categoryActions';
 
-import { DEFAULT_CATEGORY_NAME } from '../constants';
+import { DEFAULT_CATEGORY_NAME } from '../../constants';
 
 import Item from './Item';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 
 const Items = () => {
   const dispatch = useDispatch();

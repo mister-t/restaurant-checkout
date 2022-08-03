@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { listCategories, getActiveCategory } from '../actions/categoryActions';
+import { listCategories, getActiveCategory } from '../../actions/categoryActions';
 
-import { DEFAULT_CATEGORY_NAME } from '../constants';
-import Category from '../components/Category';
+import { DEFAULT_CATEGORY_NAME } from '../../constants';
+import Category from './Category';
 
 const Categories = () => {
   const dispatch = useDispatch();
