@@ -24,7 +24,6 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
         total: addedItems.reduce((acc, item) => acc + item.price * item.qty, 0)
       };
     case INCREMENT_ITEM_QTY:
-      console.log(`incrementing item ${action.payload}`)
       const idxFound = state.items.findIndex(item => item.id === action.payload);
       let foundItems;
       if (idxFound > -1) {
@@ -48,7 +47,6 @@ export const cartReducer = (state = { items: [], total: 0 }, action) => {
         total: cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
       }
     case DECREMENT_ITEM_QTY:
-      console.log(`decrementing item ${action.payload}`)
       const idxDecrement = state.items.findIndex(item => item.id === action.payload);
       let decrementItems;
       if (idxDecrement > -1) {

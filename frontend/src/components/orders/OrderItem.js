@@ -17,7 +17,7 @@ const Order = ({ id, name, description, price, qty }) => {
         <OrderItemPrice id={id} price={price} qty={qty} />
       </div>
       <p className="text-slate-400">{description}</p>
-      <div className="absolute bottom-0 right-0 w-11 overflow-hidden inline-block cursor-pointer" onClick={onRemoveItemHandler}>
+      <div className="absolute bottom-0 right-0 w-11 overflow-hidden inline-block cursor-pointer select-none" onClick={onRemoveItemHandler}>
         <div className="h-16 bg-slate-300 rotate-45 transform origin-bottom-left"><div className="-rotate-45 w-16 text-slate-600">x</div></div>
       </div>
     </article >
