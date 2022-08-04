@@ -10,7 +10,7 @@ const orderItemSchema = new mongoose.Schema({
 });
 
 const orderSchema = new mongoose.Schema({
-  'items': [orderItemSchema],
+  'items': [orderItemSchema], //mongoose only supports Schema-type or Subdocument-type arrays; specifying directly the object and its fields no longer work in recent versions
   'payment': {
     'cardType': { type: String, trim: true, required: false },
     'nameOnCard': { type: String, trim: true, required: true },

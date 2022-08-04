@@ -1,13 +1,11 @@
 const Modal = ({ title = 'Modal Title', content = 'Modal Content', size = 'max-w-md', cancelBtn = 'Cancel', saveBtn = 'Save', isHidden = true, cancelClearOrder, clearOrder }) => {
 
   const onCancelHandler = (evt) => {
-    console.log(`cancel btn clicked`)
     cancelClearOrder();
   };
 
   const onSaveHandler = (evt) => {
     clearOrder();
-    console.log('save button clicked')
   };
 
   const modal = !isHidden &&

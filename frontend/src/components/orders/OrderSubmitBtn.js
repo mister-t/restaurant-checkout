@@ -1,12 +1,17 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../actions/orderActions';
+import { toggleModal } from '../../actions/modalActions';
+
+import Modal from '../utils/Modal';
 
 const OrderSubmitBtn = () => {
   const dispatch = useDispatch();
   const { items, total } = useSelector(state => state.cart);
+  const modal = useSelector(state => state.modal);
+  const [isHidden, setIsHidden] = useState(true);
 
   const submitOrder = order => {
-    console.log(order);
     dispatch(createOrder(order));
   };
 

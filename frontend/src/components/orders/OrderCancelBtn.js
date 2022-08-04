@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../actions/cartActions';
 import { toggleModal } from '../../actions/modalActions';
 import Modal from '../utils/Modal';
+import { MODAL_PROPS } from '../../constants';
 
 const OrderCancel = () => {
+  const { CONFIRM_CANCEL } = MODAL_PROPS;
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const modal = useSelector(state => state.modal);
@@ -20,9 +22,7 @@ const OrderCancel = () => {
   };
 
   const confirmCancelProps = {
-    title: 'Cancel order?',
-    content: 'This will clear all the items. Are you sure?',
-    saveBtn: 'Clear Order',
+    ...CONFIRM_CANCEL,
     clearOrder,
     cancelClearOrder,
     isHidden,
@@ -36,10 +36,6 @@ const OrderCancel = () => {
   };
 
   useEffect(() => {
-    // if (cart.items.length === 0) {
-    //   console.log(`cart is ${cart.items.length === 0 ? 'empty' : 'not empty'}`)
-    //   dispatch(toggleModal());
-    // }
     setIsHidden(modal.isHidden);
   }, [dispatch, cart, modal]);
 
