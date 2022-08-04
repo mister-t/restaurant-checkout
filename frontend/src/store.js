@@ -6,12 +6,15 @@ import { categoryListReducer, activeCategoryReducer } from './reducers/categoryR
 import { itemListReducer } from './reducers/itemReducers';
 import { cartReducer } from './reducers/cartReducers';
 import { modalReducer } from './reducers/modalReducers';
+import { orderReducer } from './reducers/orderReducers';
+
 const reducer = combineReducers({
   categoryList: categoryListReducer,
   activeCategory: activeCategoryReducer, //need to create this reducer; otherwise, combineReducer is going to throw an error even though the property might have been specified in 'initialState'
   itemList: itemListReducer,
   cart: cartReducer,
   modal: modalReducer,
+  order: orderReducer,
 });
 
 const initialState = {};
