@@ -12,16 +12,16 @@ const Item = ({ item }) => {
   const onAddItemToCart = (evt) => {
     evt.preventDefault();
     dispatch(addItemToCart({
-      name: evt.currentTarget.getAttribute('data-name'),
-      price: Number(evt.currentTarget.getAttribute('data-price')),
-      id: evt.currentTarget.getAttribute('data-item-id'),
-      imgSrc: evt.currentTarget.getAttribute('data-img-src'),
-      description: evt.currentTarget.getAttribute('data-description'),
+      name,
+      price,
+      id: itemId,
+      imgSrc,
+      description,
     }));
   };
 
   return (
-    <div data-description={description} data-img-src={imgSrc} data-name={name} data-price={normalizedPrice} data-category-id={catId} data-item-id={itemId} className={`basis-1/${itemSize} relative h-40 border-0 flex flex-col justify-center items-center cursor-pointer`} onClick={onAddItemToCart}>
+    <div className={`basis-1/${itemSize} relative h-40 border-0 flex flex-col justify-center items-center cursor-pointer`} onClick={onAddItemToCart}>
       <img
         src={imgSrc}
         alt={name}
