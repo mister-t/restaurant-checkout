@@ -58,7 +58,9 @@ export const createOrder = (order) => async (dispatch) => {
 
     dispatch({ type: ORDER_CREATE_REQUEST });
 
-    const { data } = await axios.post(`${ROUTE_POST_ORDER}`);
+    const config = { headers: { 'Content-Type': 'application/json' } };
+
+    const { data } = await axios.post(`${ROUTE_POST_ORDER}`, order, config);
 
     dispatch({
       type: ORDER_CREATE_SUCCESS,

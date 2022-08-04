@@ -27,18 +27,14 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }));
 
 router.post('/', asyncHandler(async (req, res) => {
-  const { orderItems, payment, totalAmount } = req.body;
+  const { orderItems, total, payment } = req.body; //req.body is not iterable so cannot use spread operator
 
   if (orderItems && orderItems.length === 0) {
     res.status(404);
     throw new Error('No order items found');
     return;
   } else {
-    const order = new Order({
-      orderItems,
-      payment,
-      totalAmount
-    });
+    const order = new Order({ orderItems, total, payment });
 
     const createdOrder = await order.save();
     res.status(201).json(createdOrder);

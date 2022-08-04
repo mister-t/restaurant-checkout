@@ -1,12 +1,19 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { createOrder } from '../../actions/orderActions';
 
 const OrderSubmitBtn = () => {
+  const dispatch = useDispatch();
   const { items, total } = useSelector(state => state.cart);
+
+  const submitOrder = order => {
+    console.log(order);
+    dispatch(createOrder(order));
+  };
 
   const onClickHandler = (evt) => {
     evt.preventDefault();
-    const order = {
-      items,
+    submitOrder({
+      orderItem: items,
       total,
       "payment": {
         "cardType": "Visa",
@@ -15,9 +22,8 @@ const OrderSubmitBtn = () => {
         "expirationYear": 26,
         "cvc": 123
       }
-    };
+    });
     console.log(`order is submitted`);
-    console.log(order);
   };
 
   return (
