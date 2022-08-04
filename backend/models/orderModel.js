@@ -1,14 +1,16 @@
 import mongoose from 'mongoose';
 
-const orderSchema = mongoose.Schema({
-  'orderItems': [
-    {
-      'id': { type: String, required: true },
-      'name': { type: String, trim: true, required: true },
-      'price': { type: Number, required: true },
-      'quantity': { type: Number, required: true }
-    }
-  ],
+const orderItemSchema = new mongoose.Schema({
+  'id': { type: String, required: true },
+  'name': { type: String, trim: true, required: true },
+  'price': { type: Number, required: true },
+  'qty': { type: Number, required: true },
+  'imgSrc': { type: String, required: false },
+  'description': { type: String, required: false },
+});
+
+const orderSchema = new mongoose.Schema({
+  'items': [orderItemSchema],
   'payment': {
     'cardType': { type: String, trim: true, required: false },
     'nameOnCard': { type: String, trim: true, required: true },

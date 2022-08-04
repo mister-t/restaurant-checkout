@@ -13,7 +13,7 @@ const OrderSubmitBtn = () => {
   const onClickHandler = (evt) => {
     evt.preventDefault();
     submitOrder({
-      orderItem: items,
+      items,
       total,
       "payment": {
         "cardType": "Visa",
