@@ -38,8 +38,8 @@ const importData = async () => {
     const itemsToInsert = createdImages.filter(img => itemsToImg[img.name])
       .map(image => {
         const item = itemsToImg[image.name];
-        const { category, name, price } = item;
-        return ({ category: categoryIDs[category], name, price, image });
+        const { category, name, price, description } = item;
+        return ({ category: categoryIDs[category], name, price, image, description });
       });
     // console.log(JSON.stringify(itemsToInsert))
     const insertedItems = await Item.insertMany(itemsToInsert);

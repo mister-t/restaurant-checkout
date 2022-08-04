@@ -18,6 +18,12 @@ export const itemSchema = mongoose.Schema({
     required: true,
     default: 0.00
   },
+  'description': {
+    type: String,
+    required: false,
+    default: '',
+    maxLength: 128
+  },
 }, { timestamps: true });
 
 const Item = mongoose.model('Item', itemSchema);

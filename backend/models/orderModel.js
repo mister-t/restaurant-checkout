@@ -16,7 +16,7 @@ const orderSchema = mongoose.Schema({
     'expirationYear': { type: Number, required: true },
     'cvc': { type: Number, required: true },
   },
-  'totalAmount': { type: Number, required: true },
+  'total': { type: Number, required: true },
 }, { timestamps: true });
 
 const Order = mongoose.model('Order', orderSchema);
