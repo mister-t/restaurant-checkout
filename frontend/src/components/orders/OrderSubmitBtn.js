@@ -1,11 +1,23 @@
 import { useSelector } from 'react-redux';
 
 const OrderSubmitBtn = () => {
-  const { total } = useSelector(state => state.cart);
+  const { items, total } = useSelector(state => state.cart);
 
   const onClickHandler = (evt) => {
     evt.preventDefault();
+    const order = {
+      items,
+      total,
+      "payment": {
+        "cardType": "Visa",
+        "nameOnCard": "John Doe",
+        "expirationMonth": 11,
+        "expirationYear": 26,
+        "cvc": 123
+      }
+    };
     console.log(`order is submitted`);
+    console.log(order);
   };
 
   return (
