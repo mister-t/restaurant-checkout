@@ -4,7 +4,7 @@ const itemsToImg = {
     "808916fd5ddf96": { name: "Croissant", price: 1.0, category: 'Bakery', "description": "Plain, Chocolate or Almond varieties available at no extra cost", },
 
     "95d02a230fe050": { name: "Muffin", price: 1.25, category: 'Bakery', "description": "Blueberry or Raspberry muffins available", },
-    "23f95765b967ff": { name: "Toast / Bread", price: 1, category: 'Bakery', "description": "Regular toast, best pair with butter", },
+    "23f95765b967ff": { name: "Toast / Bread", price: 1, category: 'Bakery', "description": "Regular toast, tastes best with butter", },
     "5650be5d48a99b": { name: "English Muffin", price: 2.5, category: 'Bakery' },
     "bd237a0c0d19ef": { name: "Pasta Bar", price: 12.99, category: 'Entrees' },
     "3e1bd1342800f7": { name: "Mediterranean Entree", price: 10.99, category: 'Entrees', "description": "Vegetarian options only", },
