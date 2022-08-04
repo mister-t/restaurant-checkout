@@ -12,7 +12,8 @@ import {
   ORDER_FAIL,
   ROUTE_GET_ORDERS,
   ROUTE_GET_ORDER_BY_ID,
-  ROUTE_POST_ORDER
+  ROUTE_POST_ORDER,
+  CLEAR_CART
 } from '../constants';
 
 export const listOrders = () => async (dispatch) => {
@@ -65,7 +66,11 @@ export const createOrder = (order) => async (dispatch) => {
     dispatch({
       type: ORDER_CREATE_SUCCESS,
       payload: data
-    })
+    });
+
+    dispatch({
+      type: CLEAR_CART
+    });
   } catch (err) {
     dispatch({
       type: ORDER_CREATE_FAIL,
