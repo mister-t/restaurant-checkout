@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../actions/cartActions';
 
 const Item = ({ item }) => {
-  const { category: catId, _id: itemId, image, name, price, description } = item;
+  const { _id: itemId, image, name, price, description } = item;
   const imgSrc = `images/${image.name}.jpg`;
   const normalizedPrice = (price || 0).toFixed(2);
   const itemSize = 2;
