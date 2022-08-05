@@ -5,8 +5,12 @@ import { togglePymtModal } from '../../actions/modalActions';
 import { MODAL_PROPS } from '../../constants';
 
 import ModalPayment from '../utils/ModalPayment';
+import Modal from '../utils/Modal';
 
 const OrderSubmitBtn = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [choice, setChoice] = useState(false);
+
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const { items, total } = cart;
@@ -30,7 +34,8 @@ const OrderSubmitBtn = () => {
   const onPayOrder = (evt) => {
     evt.preventDefault();
     if (cart.items.length) {
-      dispatch(togglePymtModal());
+      // dispatch(togglePymtModal());
+      setModalVisible(true);
     }
     // save({
     //   items,
@@ -53,7 +58,13 @@ const OrderSubmitBtn = () => {
   };
   useEffect(() => {
     setIsHidden(modal.isPymtHidden);
-  }, [dispatch, cart, modal]);
+
+    if (choice) {
+      console.log(`The answer is Yes: ${Date.now()}`)
+    } else {
+      console.log(`The answer is NO: ${Date.now()}`)
+    }
+  }, [dispatch, cart, modal, choice]);
 
   return (
     <>
@@ -65,7 +76,8 @@ const OrderSubmitBtn = () => {
         <h1 className="text-5xl tracking-wider underline underline-offset-8 pb-5 md:text-2xl md:no-underline md:pb-0
         ">${total.toFixed(2)}</h1>
       </article>
-      <ModalPayment {...payOrderModalProps} />
+      {/* <ModalPayment {...payOrderModalProps} /> */}
+      {modalVisible && <Modal setModalVisible={setModalVisible} setChoice={setChoice} />}
     </>
   )
 }
