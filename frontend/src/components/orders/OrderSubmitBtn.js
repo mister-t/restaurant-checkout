@@ -87,7 +87,7 @@ const OrderSubmitBtn = () => {
             </div>
             <div class="flex flex-col items-start mb-5">
               <label className="mb-2">Name on card</label>
-              <input className="w-full rounded-md pl-[10px] py-[4px] border-2 focus:outline-none " id="full-name" type="text" placeholder="John doe" />
+              <input className="w-full rounded-md pl-[10px] py-[4px] border-2 focus:outline-none " id="full-name" type="text" placeholder="John Doe" />
             </div>
             <div>
               <label className="inline-block text-left w-full mb-2" for="full-name">Card number</label>
