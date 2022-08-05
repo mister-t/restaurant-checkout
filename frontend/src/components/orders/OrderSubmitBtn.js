@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../actions/orderActions';
-import { togglePymtModal } from '../../actions/modalActions';
 
 import Modal from '../utils/Modal';
 
@@ -15,13 +14,9 @@ const OrderSubmitBtn = () => {
 
   const modal = useSelector(state => state.modal);
 
-  const cancel = () => {
-    dispatch(togglePymtModal());
-  };
   const save = order => {
     // dispatch(createOrder(order));
     console.log(`order is submitted`);
-    dispatch(togglePymtModal());
     dispatch({
       type: 'CLEAR_CART'
     }); //remove if createOrder(order) is used
@@ -30,7 +25,6 @@ const OrderSubmitBtn = () => {
   const onPayOrder = (evt) => {
     evt.preventDefault();
     if (cart.items.length) {
-      // dispatch(togglePymtModal());
       setModalVisible(true);
     }
     // save({

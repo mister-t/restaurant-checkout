@@ -1,7 +1,6 @@
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
-export const TOGGLE_PAYMENT_MODAL = 'TOGGLE_PAYMENT_MODAL';
 
 export const MODAL_PROPS = {
   CONFIRM_CANCEL: {
