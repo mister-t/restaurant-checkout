@@ -9,9 +9,9 @@ const ModalPayment = ({ title = 'Payment', content = 'Content', size = 'max-w-md
   };
 
   const modal = !isHidden &&
-    (<div className={`container flex justify-center mx-auto ${size}`}>
+    (<div className={`container flex justify-center mx-auto `}>
       <div className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
-        <div className="max-w-sm p-6 bg-white divide-y divide-gray-500">
+        <div className={`${size} p-6 bg-white divide-y divide-gray-500 `}>
           <div className="flex items-center justify-between">
             <h3 className="text-2xl text-black">{title}</h3>
           </div>

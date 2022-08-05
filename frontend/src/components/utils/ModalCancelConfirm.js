@@ -1,4 +1,4 @@
-const Modal = ({ title = 'Modal Title', content = 'Modal Content', size = 'max-w-md', cancelBtn = 'Cancel', saveBtn = 'Save', isHidden = true, cancelClearOrder, clearOrder }) => {
+const ModalCancelConfirm = ({ title = 'Modal Title', content = 'Modal Content', size = 'max-w-md', cancelBtn = 'Cancel', saveBtn = 'Save', isHidden = true, cancelClearOrder, clearOrder }) => {
 
   const onCancelHandler = (evt) => {
     cancelClearOrder();
@@ -27,4 +27,4 @@ const Modal = ({ title = 'Modal Title', content = 'Modal Content', size = 'max-w
   return modal;
 }
 
-export default Modal;
+export default ModalCancelConfirm;

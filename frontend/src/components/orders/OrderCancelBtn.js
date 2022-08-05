@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../actions/cartActions';
 import { toggleModal } from '../../actions/modalActions';
-import Modal from '../utils/Modal';
+import ModalCancelConfirm from '../utils/ModalCancelConfirm';
 import { MODAL_PROPS } from '../../constants';
 
 const OrderCancel = () => {
@@ -47,7 +47,7 @@ const OrderCancel = () => {
         </svg>
         <button className="text-3xl tracking-wider">Cancel</button>
       </article>
-      <Modal {...confirmCancelProps} />
+      <ModalCancelConfirm {...confirmCancelProps} />
     </>
   )
 }
