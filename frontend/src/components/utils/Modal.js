@@ -1,4 +1,4 @@
-const Modal = ({ children, setModalVisible, setChoice }) => {
+const Modal = ({ children }) => {
   return (
     <div className="modal-overlay bg-slate-800/80 fixed inset-0 z-50">
       <div className="modal flex items-center justify-center h-screen">
