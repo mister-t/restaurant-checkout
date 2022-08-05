@@ -2,9 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../actions/orderActions';
 import { togglePymtModal } from '../../actions/modalActions';
-import { MODAL_PROPS } from '../../constants';
 
-import ModalPayment from '../utils/ModalPayment';
 import Modal from '../utils/Modal';
 
 const OrderSubmitBtn = () => {
@@ -16,9 +14,7 @@ const OrderSubmitBtn = () => {
   const { items, total } = cart;
 
   const modal = useSelector(state => state.modal);
-  const [isHidden, setIsHidden] = useState(true);
 
-  const { PAYMENT_PROMPTS } = MODAL_PROPS;
   const cancel = () => {
     dispatch(togglePymtModal());
   };
@@ -50,15 +46,7 @@ const OrderSubmitBtn = () => {
     // });
   };
 
-  const payOrderModalProps = {
-    ...PAYMENT_PROMPTS,
-    cancel,
-    save,
-    isHidden,
-  };
   useEffect(() => {
-    setIsHidden(modal.isPymtHidden);
-
     if (choice) {
       console.log(`The answer is Yes: ${Date.now()}`)
     } else {
@@ -76,7 +64,6 @@ const OrderSubmitBtn = () => {
         <h1 className="text-5xl tracking-wider underline underline-offset-8 pb-5 md:text-2xl md:no-underline md:pb-0
         ">${total.toFixed(2)}</h1>
       </article>
-      {/* <ModalPayment {...payOrderModalProps} /> */}
       {modalVisible && <Modal setModalVisible={setModalVisible} setChoice={setChoice} />}
     </>
   )
