@@ -58,7 +58,9 @@ const OrderSubmitBtn = () => {
         <h1 className="text-5xl tracking-wider underline underline-offset-8 pb-5 md:text-2xl md:no-underline md:pb-0
         ">${total.toFixed(2)}</h1>
       </article>
-      {modalVisible && <Modal setModalVisible={setModalVisible} setChoice={setChoice} />}
+      {modalVisible && <Modal >
+        <h1 className="text-slate-500 text-2xl md:text-3xl tracking-wide font-bold mb-8 pt-2">Payment Information</h1>
+      </Modal>}
     </>
   )
 }
