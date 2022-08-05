@@ -65,7 +65,7 @@ const OrderSubmitBtn = () => {
       </article>
       {modalVisible && <Modal >
         <div class="flex justify-end -pt-2">
-          <button className="text-slate-500 font-bold" onClick={onCancelHandler}>
+          <button className="text-slate-500 font-bold focus:outline-none" onClick={onCancelHandler}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -76,7 +76,7 @@ const OrderSubmitBtn = () => {
           <form className="flex flex-col border-2 p-8 rounded-md">
             <div class="flex justify-between mb-10">
               <section className="w-1/2 flex justify-start">
-                <input className="text-indigo-600" id="add-new-credit-card" type="radio" name="cardType" value="Add a new card" checked />
+                <input className="accent-mgPurple focus:outline-none" id="add-new-credit-card" type="radio" name="cardType" value="Add a new card" checked />
                 <label className="ml-2">Add a new card</label>
               </section>
               <section className="w-1/2 flex justify-end">
@@ -87,22 +87,22 @@ const OrderSubmitBtn = () => {
             </div>
             <div class="flex flex-col items-start mb-5">
               <label className="mb-2">Name on card</label>
-              <input className="w-full rounded-md border-2 " id="full-name" type="text" placeholder="John doe" />
+              <input className="w-full rounded-md pl-[10px] py-[4px] border-2 focus:outline-none " id="full-name" type="text" placeholder="John doe" />
             </div>
             <div>
               <label className="inline-block text-left w-full mb-2" for="full-name">Card number</label>
-              <div className="flex justify-between border-2">
-                <input className="w-1/3 rounded-md" id="full-name" type="text" placeholder="Card number" />
+              <div className="flex justify-between rounded-md border-2">
+                <input className="w-1/3 rounded-md pl-[10px] py-[4px] focus:outline-none" id="full-name" type="text" placeholder="Card number" />
                 <section className="">
-                  <input id="cc-month" maxLength={2} placeholder="MM" className="w-6 " />
-                  <span className='text-slate-800/50 pr-1 w-2'>/</span>
-                  <input id="cc-year" maxLength={2} placeholder="YY" className="w-6 pr-1" />
-                  <input id="cc-cvc" maxLength={3} placeholder="CVC" className="w-8 mx-1" />
+                  <input id="cc-month" maxLength={2} placeholder="MM" className="w-7 focus:outline-none py-[4px]" />
+                  <span className='text-slate-800/50 mx-1 w-2'>/</span>
+                  <input id="cc-year" maxLength={2} placeholder="YY" className="w-7 pr-1 focus:outline-none py-[4px]" />
+                  <input id="cc-cvc" maxLength={3} placeholder="CVC" className="w-8 mx-2 focus:outline-none py-[4px]" />
                 </section>
               </div>
             </div>
           </form>
-          <button className='w-1/2 p-2 rounded-sm shadow-md bg-mgPurple mt-8 text-white'>Place Order</button>
+          <button className='w-1/2 p-2 rounded-sm shadow-md bg-mgPurple mt-8 text-white focus:outline-none'>Place Order</button>
         </div>
       </Modal>}
     </>
