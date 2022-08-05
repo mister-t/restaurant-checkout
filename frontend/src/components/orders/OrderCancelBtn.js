@@ -40,9 +40,9 @@ const OrderCancel = () => {
         <button className="text-3xl tracking-wider">Cancel</button>
       </article>
       {modalVisible && <Modal setModalVisible={setModalVisible} setChoice={setConfirmCancel} >
-        <h1 className="text-slate-500 text-3xl tracking-wide font-bold mb-8 pt-2">Cancel order?</h1>
-        <button className="w-1/3 mx-1 bg-slate-800/90 rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4">Cancel</button>
-        <button className="w-1/3 mx-1 bg-softBlue rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4">No</button>
+        <h1 className="text-slate-500 text-3xl md:text-5xl tracking-wide font-bold mb-8 pt-2">Cancel order?</h1>
+        <button className="w-1/3 mx-1 bg-slate-800/90 rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4 md:w-1/4">Yes</button>
+        <button className="w-1/3 mx-1 bg-mgPurple rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4 md:w-1/4">No</button>
       </Modal>}
     </>
   )
