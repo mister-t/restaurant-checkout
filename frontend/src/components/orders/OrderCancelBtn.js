@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../actions/cartActions';
+import Modal from '../utils/Modal';
 
 const OrderCancel = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [confirmCancel, setConfirmCancel] = useState(false);
+
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
 
@@ -14,11 +18,18 @@ const OrderCancel = () => {
     evt.preventDefault();
     if (cart.items.length > 0) {
       //show modal if order items exist
+      setModalVisible(true);
     }
   };
 
   useEffect(() => {
-  }, [dispatch, cart]);
+    if (confirmCancel) {
+      console.log(`Cancel order confirmed: ${Date.now()}`)
+    } else {
+      console.log(`Do not cancel order: ${Date.now()}`);
+      setModalVisible(false);
+    }
+  }, [dispatch, confirmCancel]);
 
   return (
     <>
@@ -28,6 +39,7 @@ const OrderCancel = () => {
         </svg>
         <button className="text-3xl tracking-wider">Cancel</button>
       </article>
+      {modalVisible && <Modal setModalVisible={setModalVisible} setChoice={setConfirmCancel} />}
     </>
   )
 }
