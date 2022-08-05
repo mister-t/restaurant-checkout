@@ -59,7 +59,7 @@ const OrderSubmitBtn = () => {
         ">${total.toFixed(2)}</h1>
       </article>
       {modalVisible && <Modal >
-        <h1 className="text-slate-500 text-2xl md:text-3xl tracking-wide font-bold mb-8 pt-2">Payment Information</h1>
+        <h1 className="ff-mpr1c-medium text-2xl md:text-3xl tracking-wide font-bold mb-8 pt-2">Payment Information</h1>
       </Modal>}
     </>
   )

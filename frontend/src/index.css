@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'MPLUSRounded1cThin';
+  src: local('MPLUSRounded1c'),
+    url('./fonts/MPLUSRounded1c/MPLUSRounded1c-Thin.ttf') format('truetype');
+  font-weight: thin;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1cRegular';
+  src: local('MPLUSRounded1c'),
+    url('./fonts/MPLUSRounded1c/MPLUSRounded1c-Regular.ttf') format('truetype');
+  font-weight: regular;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1cMedium';
+  src: local('MPLUSRounded1c'),
+    url('./fonts/MPLUSRounded1c/MPLUSRounded1c-Medium.ttf') format('truetype');
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1c';
+  src: local('MPLUSRounded1cLight'),
+    url('./fonts/MPLUSRounded1c/MPLUSRounded1c-Light.ttf') format('truetype');
+  font-weight: light;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1cExtrabold';
+  src: local('MPLUSRounded1c'),
+    url('./fonts/MPLUSRounded1c/MPLUSRounded1c-ExtraBold.ttf')
+      format('truetype');
+  font-weight: extrabold;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1cBold';
+  src: local('MPLUSRounded1c'),
+    url('./fonts/MPLUSRounded1c/MPLUSRounded1c-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+.ff-mpr1c-thin {
+  font-family: 'MPLUSRounded1cThin';
+}
+.ff-mpr1c-regular {
+  font-family: 'MPLUSRounded1cRegular';
+}
+.ff-mpr1c-light {
+  font-family: 'MPLUSRounded1cLight';
+}
+.ff-mpr1c-medium {
+  font-family: 'MPLUSRounded1cMedium';
+}
+.ff-mpr1c-bold {
+  font-family: 'MPLUSRounded1cBold';
+}
+.ff-mpr1c-extraBold {
+  font-family: 'MPLUSRounded1cExtraBold';
+}

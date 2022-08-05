@@ -1,3 +1,11 @@
+import './fonts/MPLUSRounded1c/MPLUSRounded1c-Black.ttf';
+import './fonts/MPLUSRounded1c/MPLUSRounded1c-Bold.ttf';
+import './fonts/MPLUSRounded1c/MPLUSRounded1c-ExtraBold.ttf';
+import './fonts/MPLUSRounded1c/MPLUSRounded1c-Light.ttf';
+import './fonts/MPLUSRounded1c/MPLUSRounded1c-Medium.ttf';
+import './fonts/MPLUSRounded1c/MPLUSRounded1c-Regular.ttf';
+import './fonts/MPLUSRounded1c/MPLUSRounded1c-Thin.ttf';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
