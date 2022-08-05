@@ -1,43 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../actions/cartActions';
-import { toggleModal } from '../../actions/modalActions';
-import ModalCancelConfirm from '../utils/ModalCancelConfirm';
-import { MODAL_PROPS } from '../../constants';
 
 const OrderCancel = () => {
-  const { CONFIRM_CANCEL } = MODAL_PROPS;
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
-  const modal = useSelector(state => state.modal);
-  const [isHidden, setIsHidden] = useState(true);
 
   const clearOrder = () => {
     dispatch(clearCart());
-    dispatch(toggleModal())
-  };
-
-  const cancelClearOrder = () => {
-    dispatch(toggleModal())
-  };
-
-  const confirmCancelProps = {
-    ...CONFIRM_CANCEL,
-    clearOrder,
-    cancelClearOrder,
-    isHidden,
   };
 
   const onCancelHandler = (evt) => {
     evt.preventDefault();
     if (cart.items.length > 0) {
-      dispatch(toggleModal());
+      //show modal if order items exist
     }
   };
 
   useEffect(() => {
-    setIsHidden(modal.isHidden);
-  }, [dispatch, cart, modal]);
+  }, [dispatch, cart]);
 
   return (
     <>
@@ -47,7 +28,6 @@ const OrderCancel = () => {
         </svg>
         <button className="text-3xl tracking-wider">Cancel</button>
       </article>
-      <ModalCancelConfirm {...confirmCancelProps} />
     </>
   )
 }
