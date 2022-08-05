@@ -1,18 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../actions/cartActions';
 import Modal from '../utils/Modal';
 
 const OrderCancel = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [confirmCancel, setConfirmCancel] = useState(false);
 
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
-
-  const clearOrder = () => {
-    dispatch(clearCart());
-  };
 
   const onCancelHandler = (evt) => {
     evt.preventDefault();
@@ -22,14 +17,14 @@ const OrderCancel = () => {
     }
   };
 
-  useEffect(() => {
-    if (confirmCancel) {
-      console.log(`Cancel order confirmed: ${Date.now()}`)
-    } else {
-      console.log(`Do not cancel order: ${Date.now()}`);
-      setModalVisible(false);
-    }
-  }, [dispatch, confirmCancel]);
+  const onYesHandler = evt => {
+    setModalVisible(false);
+    dispatch(clearCart());
+  };
+
+  const onNoHandler = evt => {
+    setModalVisible(false);
+  };
 
   return (
     <>
@@ -39,10 +34,10 @@ const OrderCancel = () => {
         </svg>
         <button className="text-3xl tracking-wider">Cancel</button>
       </article>
-      {modalVisible && <Modal setModalVisible={setModalVisible} setChoice={setConfirmCancel} >
+      {modalVisible && <Modal setModalVisible={setModalVisible}>
         <h1 className="text-slate-500 text-6xl md:text-5xl tracking-wide font-bold mb-8 pt-2">Cancel order?</h1>
-        <button className="w-1/3 mx-1 bg-slate-800/90 rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4 md:w-1/4">Yes</button>
-        <button className="w-1/3 mx-1 bg-mgPurple rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4 md:w-1/4">No</button>
+        <button className="w-1/3 mx-1 bg-slate-800/90 rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4 md:w-1/4" onClick={onYesHandler}>Yes</button>
+        <button className="w-1/3 mx-1 bg-mgPurple rounded font-bold text-xl px-4 py-2 text-white text-center md:mx-4 md:w-1/4" onClick={onNoHandler}>No</button>
       </Modal>}
     </>
   )
