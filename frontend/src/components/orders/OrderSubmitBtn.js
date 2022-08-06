@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../actions/orderActions';
 
@@ -12,10 +12,8 @@ const OrderSubmitBtn = () => {
   const cart = useSelector(state => state.cart);
   const { items, total } = cart;
 
-  const modal = useSelector(state => state.modal);
-
   const save = order => {
-    // dispatch(createOrder(order));
+    dispatch(createOrder(order));
     console.log(`order is submitted`);
     dispatch({
       type: 'CLEAR_CART'
@@ -29,27 +27,16 @@ const OrderSubmitBtn = () => {
 
   const onPayOrder = (evt) => {
     evt.preventDefault();
-    if (cart.items.length) {
+    if (items.length) {
       setModalVisible(true);
     }
-    // save({
-    //   items,
-    //   total,
-    //   "payment": {
-    //     "cardType": "Visa",
-    //     "nameOnCard": "John Doe",
-    //     "expMonth": 11,
-    //     "expYear": 26,
-    //     "cvc": 123
-    //   }
-    // });
   };
 
   const onSubmit = evt => {
     evt.preventDefault();
-    console.log('form submitted')
     console.log(paymentValues)
-    setModalVisible(false);
+    save({ items, payment: paymentValues, total });
+    setModalVisible(false); //hide modal
     setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
   };
 
@@ -73,7 +60,7 @@ const OrderSubmitBtn = () => {
     evt.persist();
     setPaymentValues(values => ({
       ...values,
-      ccNumber: evt.target.value
+      ccNumber: Number(evt.target.value)
     }));
   };
 
@@ -81,7 +68,7 @@ const OrderSubmitBtn = () => {
     evt.persist();
     setPaymentValues(values => ({
       ...values,
-      expMonth: evt.target.value
+      expMonth: Number(evt.target.value)
     }));
   };
 
@@ -89,7 +76,7 @@ const OrderSubmitBtn = () => {
     evt.persist();
     setPaymentValues(values => ({
       ...values,
-      expYear: evt.target.value
+      expYear: Number(evt.target.value)
     }));
   };
 
@@ -97,12 +84,9 @@ const OrderSubmitBtn = () => {
     evt.persist();
     setPaymentValues(values => ({
       ...values,
-      cvc: evt.target.value
+      cvc: Number(evt.target.value)
     }));
   };
-
-  useEffect(() => {
-  }, [dispatch, cart, modal]);
 
   return (
     <>
