@@ -13,9 +13,10 @@ const orderSchema = new mongoose.Schema({
   'items': [orderItemSchema], //mongoose only supports Schema-type or Subdocument-type arrays; specifying directly the object and its fields no longer work in recent versions
   'payment': {
     'cardType': { type: String, trim: true, required: false },
-    'nameOnCard': { type: String, trim: true, required: true },
-    'expirationMonth': { type: Number, required: true },
-    'expirationYear': { type: Number, required: true },
+    'ccNumber': { type: Number, required: true },
+    'fullName': { type: String, trim: true, required: true },
+    'expMonth': { type: Number, required: true },
+    'expYear': { type: Number, required: true },
     'cvc': { type: Number, required: true },
   },
   'total': { type: Number, required: true },

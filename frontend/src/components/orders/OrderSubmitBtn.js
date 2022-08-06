@@ -6,16 +6,16 @@ import Modal from '../utils/Modal';
 
 const OrderSubmitBtn = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [choice, setChoice] = useState(false);
   const [paymentValues, setPaymentValues] = useState({
-    cardType: 'Add a new card',
+    cardType: 'Visa',
     fullName: '',
     ccNumber: '',
-    ccMonth: '',
-    ccYear: '',
+    expMonth: '',
+    expYear: '',
     cvc: ''
   });
 
+  //     "cvc": 123
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const { items, total } = cart;
@@ -46,8 +46,8 @@ const OrderSubmitBtn = () => {
     //   "payment": {
     //     "cardType": "Visa",
     //     "nameOnCard": "John Doe",
-    //     "expirationMonth": 11,
-    //     "expirationYear": 26,
+    //     "expMonth": 11,
+    //     "expYear": 26,
     //     "cvc": 123
     //   }
     // });
@@ -56,6 +56,7 @@ const OrderSubmitBtn = () => {
   const onSubmit = evt => {
     evt.preventDefault();
     console.log('form submitted')
+    console.log(paymentValues)
   };
 
   const onCardTypeChange = evt => {
@@ -86,7 +87,7 @@ const OrderSubmitBtn = () => {
     evt.persist();
     setPaymentValues(values => ({
       ...values,
-      ccMonth: evt.target.value
+      expMonth: evt.target.value
     }));
   };
 
@@ -94,7 +95,7 @@ const OrderSubmitBtn = () => {
     evt.persist();
     setPaymentValues(values => ({
       ...values,
-      ccYear: evt.target.value
+      expYear: evt.target.value
     }));
   };
 
@@ -107,12 +108,7 @@ const OrderSubmitBtn = () => {
   };
 
   useEffect(() => {
-    if (choice) {
-      console.log(`The answer is Yes: ${Date.now()}`)
-    } else {
-      console.log(`The answer is NO: ${Date.now()}`)
-    }
-  }, [dispatch, cart, modal, choice]);
+  }, [dispatch, cart, modal]);
 
   return (
     <>
@@ -149,16 +145,16 @@ const OrderSubmitBtn = () => {
               </div>
               <div className="flex flex-col items-start mb-5">
                 <label className="mb-2">Name on card</label>
-                <input className="w-full rounded-md pl-[10px] py-[4px] border-2 focus:outline-none " id="full-name" type="text" placeholder="John Doe" required name="fullName" value={paymentValues.fullName} onChange={onFullNameChange} />
+                <input className="w-full rounded-md pl-[10px] py-[4px] border-2 focus:outline-none " id="full-name" type="text" placeholder="John Doe" required maxLength={128} name="fullName" value={paymentValues.fullName} onChange={onFullNameChange} />
               </div>
               <div>
                 <label className="inline-block text-left w-full mb-2" htmlFor="full-name">Card number</label>
                 <div className="flex flex-col md:flex-row justify-between rounded-md border-2">
                   <input className="w-1/2 rounded-md pl-[10px] py-[4px] focus:outline-none" id="full-name" type="text" minLength={12} maxLength={16} placeholder="Card number" required name="ccNumber" value={paymentValues.ccNumber} onChange={onCcNumberChange} />
                   <section className="">
-                    <input id="cc-month" maxLength={2} placeholder="MM" className="w-7 focus:outline-none py-[4px]" required name="ccMonth" value={paymentValues.ccMonth} onChange={onCcMonthChange} />
+                    <input id="cc-month" maxLength={2} placeholder="MM" className="w-7 focus:outline-none py-[4px]" required name="expMonth" value={paymentValues.expMonth} onChange={onCcMonthChange} />
                     <span className='text-slate-800/50 mx-1 w-2'>/</span>
-                    <input id="cc-year" maxLength={2} placeholder="YY" className="w-7 pr-1 focus:outline-none py-[4px]" required name="ccYear" value={paymentValues.ccYear} onChange={onCcYearChange} />
+                    <input id="cc-year" maxLength={2} placeholder="YY" className="w-7 pr-1 focus:outline-none py-[4px]" required name="expYear" value={paymentValues.expYear} onChange={onCcYearChange} />
                     <input id="cc-cvc" minLength={3} maxLength={4} placeholder="CVC" className="w-8 mx-2 focus:outline-none py-[4px]" required name="cvc" value={paymentValues.cvc} onChange={onCvcChange} />
                   </section>
                 </div>
