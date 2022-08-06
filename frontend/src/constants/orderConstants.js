@@ -11,10 +11,10 @@ export const ORDER_CREATE_SUCCESS = 'ORDER_CREATE_SUCCESS';
 export const ORDER_CREATE_FAIL = 'ORDER_CREATE_FAIL';
 
 export const ORDER_PYMT_DEFAULTS = {
-  cardType: 'Visa',
-  fullName: '',
-  ccNumber: '',
-  expMonth: '',
-  expYear: '',
-  cvc: ''
+  "cardType": "Visa",
+  "fullName": "",
+  "ccNumber": "",
+  "expMonth": "",
+  "expYear": "",
+  "cvc": ""
 };
