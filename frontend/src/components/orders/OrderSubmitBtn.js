@@ -15,9 +15,6 @@ const OrderSubmitBtn = () => {
   const save = order => {
     dispatch(createOrder(order));
     console.log(`order is submitted`);
-    dispatch({
-      type: 'CLEAR_CART'
-    }); //remove if createOrder(order) is used
   };
 
   const onCancelHandler = (evt) => {
