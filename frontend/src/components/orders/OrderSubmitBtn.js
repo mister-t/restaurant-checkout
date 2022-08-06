@@ -2,20 +2,12 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../actions/orderActions';
 
+import { ORDER_PYMT_DEFAULTS } from '../../constants';
 import Modal from '../utils/Modal';
 
 const OrderSubmitBtn = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [paymentValues, setPaymentValues] = useState({
-    cardType: 'Visa',
-    fullName: '',
-    ccNumber: '',
-    expMonth: '',
-    expYear: '',
-    cvc: ''
-  });
-
-  //     "cvc": 123
+  const [paymentValues, setPaymentValues] = useState(ORDER_PYMT_DEFAULTS);
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const { items, total } = cart;
@@ -57,6 +49,8 @@ const OrderSubmitBtn = () => {
     evt.preventDefault();
     console.log('form submitted')
     console.log(paymentValues)
+    setModalVisible(false);
+    setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
   };
 
   const onCardTypeChange = evt => {
