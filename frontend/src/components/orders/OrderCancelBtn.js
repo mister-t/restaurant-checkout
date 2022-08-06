@@ -17,14 +17,20 @@ const OrderCancel = () => {
     }
   };
 
-  const onYesHandler = evt => {
+  const onYesHandler = () => {
     setModalVisible(false);
     dispatch(clearCart());
   };
 
-  const onNoHandler = evt => {
+  const onNoHandler = () => {
     setModalVisible(false);
   };
+
+  const modalAttributes = {
+    setModalVisible,
+    onYesHandler,
+    onNoHandler
+  }
 
   return (
     <>
@@ -34,7 +40,7 @@ const OrderCancel = () => {
         </svg>
         <button className="text-3xl tracking-wider">Cancel</button>
       </article>
-      {modalVisible && <ModalCancel setModalVisible={setModalVisible} onYesHandler={onYesHandler} onNoHandler={onNoHandler} />}
+      {modalVisible && <ModalCancel {...modalAttributes} />}
     </>
   )
 }
