@@ -27,7 +27,6 @@ const OrderCancel = () => {
   };
 
   const modalAttributes = {
-    setModalVisible,
     onYesHandler,
     onNoHandler
   }
