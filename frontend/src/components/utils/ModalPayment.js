@@ -1,6 +1,6 @@
 import Modal from './Modal';
 
-const ModalSubmitOrder = ({ title = "Payment Information", paymentValues, onHandlers }) => {
+const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers }) => {
   return (
     <Modal>
       <div className="flex justify-end px-8 -pt-2 sm:px-0">
@@ -49,4 +49,4 @@ const ModalSubmitOrder = ({ title = "Payment Information", paymentValues, onHand
   );
 }
 
-export default ModalSubmitOrder;
+export default ModalPayment;

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../../actions/orderActions';
 
 import { ORDER_PYMT_DEFAULTS } from '../../constants';
-import ModalSubmitOrder from '../utils/ModalSubmitOrder';
+import ModalPayment from '../utils/ModalPayment';
 
 const OrderSubmitBtn = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -112,7 +112,7 @@ const OrderSubmitBtn = () => {
         <h1 className="text-5xl tracking-wider underline underline-offset-8 pb-5 md:text-2xl md:no-underline md:pb-0
         ">${total.toFixed(2)}</h1>
       </article>
-      {modalVisible && <ModalSubmitOrder {...modalProps} />}
+      {modalVisible && <ModalPayment {...modalProps} />}
     </>
   )
 }
