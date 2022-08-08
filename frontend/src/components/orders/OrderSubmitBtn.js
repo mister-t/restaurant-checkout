@@ -14,7 +14,6 @@ const OrderSubmitBtn = () => {
 
   const save = order => {
     dispatch(createOrder(order));
-    console.log(`order is submitted`);
   };
 
   const onCancelHandler = (evt) => {
@@ -34,68 +33,22 @@ const OrderSubmitBtn = () => {
     evt.preventDefault();
     console.log(paymentValues)
     save({ items, payment: paymentValues, total });
-    // setModalVisible(false); //hide modal
     setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
   };
 
-  const onCardTypeChange = evt => {
+  const onFormInputChange = evt => {
     evt.persist();
+    console.log(`${evt.target.name}: ${evt.target.value}`);
     setPaymentValues(values => ({
       ...values,
-      cardType: evt.target.value
-    }));
-  };
-
-  const onFullNameChange = evt => {
-    evt.persist();
-    setPaymentValues(values => ({
-      ...values,
-      fullName: evt.target.value
-    }));
-  };
-
-  const onCcNumberChange = evt => {
-    evt.persist();
-    setPaymentValues(values => ({
-      ...values,
-      ccNumber: Number(evt.target.value)
-    }));
-  };
-
-  const onCcMonthChange = evt => {
-    evt.persist();
-    setPaymentValues(values => ({
-      ...values,
-      expMonth: Number(evt.target.value)
-    }));
-  };
-
-  const onCcYearChange = evt => {
-    evt.persist();
-    setPaymentValues(values => ({
-      ...values,
-      expYear: Number(evt.target.value)
-    }));
-  };
-
-  const onCvcChange = evt => {
-    evt.persist();
-    setPaymentValues(values => ({
-      ...values,
-      cvc: Number(evt.target.value)
+      [evt.target.name]: Number(evt.target.value) ? Number(evt.target.value) : evt.target.value
     }));
   };
 
   const onHandlers = {
+    onFormInputChange,
     onSubmit,
-    onPayOrder,
-    onCancelHandler,
-    onCvcChange,
-    onCardTypeChange,
-    onFullNameChange,
-    onCcNumberChange,
-    onCcMonthChange,
-    onCcYearChange
+    onCancelHandler
   };
 
   const modalProps = {
