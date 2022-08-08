@@ -38,6 +38,7 @@ const OrderSubmitBtn = () => {
   const onCancelHandler = (evt) => {
     evt.preventDefault();
     setModalVisible(false);
+    setPaymentValues(ORDER_PYMT_DEFAULTS);
     dispatch(clearOrder());
   };
 
