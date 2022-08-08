@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createOrder, clearOrder } from '../../actions/orderActions';
 
 import { ORDER_PYMT_DEFAULTS } from '../../constants';
-import ModalPayment from '../utils/ModalPayment';
+import ModalPayment from './ModalPayment';
 
 const OrderSubmitBtn = () => {
   const [modalVisible, setModalVisible] = useState(false);

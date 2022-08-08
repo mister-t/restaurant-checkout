@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import Modal from './Modal';
+import Modal from '../utils/Modal';
 import Spinner from '../utils/Spinner';
-import OrderThankyou from '../orders/OrderThankyou';
-import OrderPaymentCancelBtn from '../orders/OrderPaymentCancelBtn'
+import OrderThankyou from './OrderThankyou';
+import OrderPaymentCancelBtn from './OrderPaymentCancelBtn'
 
 const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers }) => {
   const { loading, success } = useSelector(state => state.orderCreate);
