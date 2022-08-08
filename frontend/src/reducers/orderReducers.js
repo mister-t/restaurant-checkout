@@ -2,6 +2,7 @@ import {
   ORDER_CREATE_REQUEST,
   ORDER_CREATE_SUCCESS,
   ORDER_CREATE_FAIL,
+  ORDER_CREATE_CLEAR,
   ORDER_LIST_REQUEST,
   ORDER_LIST_SUCCESS,
   ORDER_LIST_FAIL,
@@ -44,6 +45,8 @@ export const orderCreateReducer = (state = {}, action) => {
       return { loading: false, success: true, order: action.payload }
     case ORDER_CREATE_FAIL:
       return { loading: false, error: action.payload }
+    case ORDER_CREATE_CLEAR:
+      return { loading: false }
     default:
       return state;
   }

@@ -13,7 +13,8 @@ import {
   ROUTE_GET_ORDERS,
   ROUTE_GET_ORDER_BY_ID,
   ROUTE_POST_ORDER,
-  CLEAR_CART
+  CLEAR_CART,
+  ORDER_CREATE_CLEAR
 } from '../constants';
 
 export const listOrders = () => async (dispatch) => {
@@ -77,4 +78,10 @@ export const createOrder = (order) => async (dispatch) => {
       payload: err.response && err.response.data.message ? err.response.data.message : err.message
     });
   }
+};
+
+export const clearOrder = () => async (dispatch) => {
+  dispatch({
+    type: ORDER_CREATE_CLEAR
+  });
 };

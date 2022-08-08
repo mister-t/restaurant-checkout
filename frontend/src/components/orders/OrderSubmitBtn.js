@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createOrder } from '../../actions/orderActions';
+import { createOrder, clearOrder } from '../../actions/orderActions';
 
 import { ORDER_PYMT_DEFAULTS } from '../../constants';
 import ModalPayment from '../utils/ModalPayment';
@@ -20,6 +20,7 @@ const OrderSubmitBtn = () => {
   const onCancelHandler = (evt) => {
     evt.preventDefault();
     setModalVisible(false);
+    dispatch(clearOrder());
   };
 
   const onPayOrder = (evt) => {

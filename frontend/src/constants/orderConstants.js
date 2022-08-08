@@ -9,6 +9,7 @@ export const ORDER_FAIL = 'ORDER_FAIL';
 export const ORDER_CREATE_REQUEST = 'ORDER_CREATE_REQUEST';
 export const ORDER_CREATE_SUCCESS = 'ORDER_CREATE_SUCCESS';
 export const ORDER_CREATE_FAIL = 'ORDER_CREATE_FAIL';
+export const ORDER_CREATE_CLEAR = 'ORDER_CREATE_CLEAR';
 
 export const ORDER_PYMT_DEFAULTS = {
   "cardType": "Visa",
