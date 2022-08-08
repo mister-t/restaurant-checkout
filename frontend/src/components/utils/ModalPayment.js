@@ -2,19 +2,14 @@ import { useSelector } from 'react-redux';
 import Modal from './Modal';
 import Spinner from '../utils/Spinner';
 import OrderThankyou from '../orders/OrderThankyou';
+import OrderPaymentCancelBtn from '../orders/OrderPaymentCancelBtn'
 
 const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers }) => {
   const { loading, success } = useSelector(state => state.orderCreate);
 
   return (
     <Modal>
-      <div className="flex justify-end px-8 -pt-2 sm:px-0">
-        <button className="text-slate-500 font-bold focus:outline-none" onClick={onHandlers.onCancelHandler}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+      <OrderPaymentCancelBtn onCancelHandler={onHandlers.onCancelHandler} />
       {success ? <OrderThankyou onCancelHandler={onHandlers.onCancelHandler} /> : loading ? <Spinner /> : <div className="flex flex-col items-center w-screen sm:w-full">
         <h1 className="ff-mpr1c-regular text-slate-500 text-2xl md:text-3xl tracking-tight font-bold mb-8 pt-2">{title}</h1>
         <form onSubmit={onHandlers.onSubmit}>
