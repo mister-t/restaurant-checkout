@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
 import Modal from './Modal';
 
 const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers }) => {
+  const { loading, success, order } = useSelector(state => state.orderCreate);
+
   return (
     <Modal>
       <div className="flex justify-end px-8 -pt-2 sm:px-0">
@@ -10,7 +13,24 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
           </svg>
         </button>
       </div>
-      <div className="flex flex-col items-center w-screen sm:w-full">
+      {success ? (
+        <div class="flex flex-col items-center space-y-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="text-green-600 w-28 h-28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h1 class="text-4xl font-bold">Thank You !</h1>
+          <p>Please keep your receipt. It will be needed when your order is ready.</p>
+          <a href="#" class="inline-flex items-center px-4 py-2 text-white bg-mgPurple border border-mgPurple rounded hover:bg-indigo-700 focus:outline-none focus:ring">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            </svg>
+            <span class="text-sm font-medium">
+              New Order
+            </span>
+          </a>
+        </div>
+      ) : <div className="flex flex-col items-center w-screen sm:w-full">
         <h1 className="ff-mpr1c-regular text-slate-500 text-2xl md:text-3xl tracking-tight font-bold mb-8 pt-2">{title}</h1>
         <form onSubmit={onHandlers.onSubmit}>
           <div className="flex flex-col border-2 p-8 rounded-md">
@@ -45,6 +65,7 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
           <button type="submit" className='w-1/2 p-2 rounded-sm shadow-md bg-mgPurple mt-8 text-white focus:outline-none'>Place Order</button>
         </form>
       </div>
+      }
     </Modal>
   );
 }

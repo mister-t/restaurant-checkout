@@ -33,7 +33,7 @@ const OrderSubmitBtn = () => {
     evt.preventDefault();
     console.log(paymentValues)
     save({ items, payment: paymentValues, total });
-    setModalVisible(false); //hide modal
+    // setModalVisible(false); //hide modal
     setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
   };
 
