@@ -29,7 +29,7 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
             </div>
             <div className="flex flex-col items-start mb-5">
               <label className="mb-2">Name on card</label>
-              <input className={`w-full rounded-md pl-[10px] py-[4px] ${errors.fullName ? "border-red-500" : ""} border-2 focus:outline-none `} id="full-name" type="text" placeholder="John Doe" required maxLength={128} name="fullName" value={fullName} onChange={onFormInputChange} />
+              <input className={`w-full rounded-md pl-[10px] py-[4px] ${errors.fullName ? "border-red-500 text-red-500" : ""} border-2 focus:outline-none `} id="full-name" type="text" placeholder="John Doe" required maxLength={128} name="fullName" value={fullName} onChange={onFormInputChange} />
               {errors && errors.fullName && <p className="text-red-500 text-sm pl-1">{errors.fullName}</p>}
             </div>
             <div>
@@ -44,10 +44,10 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
                 </section>
               </div>
             </div>
-            {errors.ccNumber && <p className="text-red-500 text-sm text-left pl-1">{errors.ccNumber}</p>}
-            {errors.expMonth && <p className="text-red-500 text-sm text-left pl-1">{errors.expMonth}</p>}
-            {errors.expYear && <p className="text-red-500 text-sm text-left pl-1">{errors.expYear}</p>}
-            {errors.cvc && <p className="text-red-500 text-sm text-left pl-1">{errors.cvc}</p>}
+            {errors.ccNumber && <p className="text-red-500 text-sm text-left pl-1 mb-1">- {errors.ccNumber}</p>}
+            {errors.expMonth && <p className="text-red-500 text-sm text-left pl-1 mb-1">- {errors.expMonth}</p>}
+            {errors.expYear && <p className="text-red-500 text-sm text-left pl-1 mb-1">- {errors.expYear}</p>}
+            {errors.cvc && <p className="text-red-500 text-sm text-left pl-1 mb-1">- {errors.cvc}</p>}
           </div>
           <button type="submit" className='w-1/2 p-2 rounded-sm shadow-md bg-mgPurple mt-8 text-white focus:outline-none'>Place Order</button>
         </form>
