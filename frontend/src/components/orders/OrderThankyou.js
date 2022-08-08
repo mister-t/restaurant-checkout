@@ -7,7 +7,7 @@ const OrderThankyou = ({ onCancelHandler }) => {
       </svg>
       <h1 className="text-4xl font-bold">Thank You !</h1>
       <p>Please keep your receipt. It will be needed when your order is ready.</p>
-      <button onClick={onCancelHandler} className="inline-flex items-center px-4 py-2 text-white bg-mgPurple border border-mgPurple rounded hover:bg-indigo-700 focus:outline-none focus:ring">
+      <button tabIndex={1} onClick={onCancelHandler} className="inline-flex items-center px-4 py-2 text-white bg-mgPurple border border-mgPurple rounded hover:bg-indigo-700 focus:outline-none focus:ring">
         <svg xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 mr-2" fill="none" viewBox="0 0 24 24"
           stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />

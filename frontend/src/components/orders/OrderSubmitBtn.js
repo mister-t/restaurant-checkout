@@ -17,17 +17,23 @@ const OrderSubmitBtn = () => {
   const cart = useSelector(state => state.cart);
   const { items, total } = cart;
 
-  const save = order => {
-    dispatch(createOrder(order));
-  };
-
   useEffect(() => {
+    const save = order => {
+      dispatch(createOrder(order));
+    };
+
+    // console.log('=====')
+    // console.log('in use effect')
+    // console.log(`errors: ${JSON.stringify(errors)}`)
+    // console.log(`items: ${JSON.stringify(items)}`)
+    // console.log(`isSubmitting: ${JSON.stringify(isSubmitting)}`)
+    // console.log('=====')
     if (Object.keys(errors).length === 0 && items.length && isSubmitting) {
       save({ items, payment: paymentValues, total });
-    } else {
-      console.log('loading for the first time; do not validate')
+      setIsSubmitting(false);
+      setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesfull
     }
-  }, [errors, isSubmitting, items, paymentValues, total, save]);
+  }, [dispatch, errors, isSubmitting, items, paymentValues, total]);
 
   const onCancelHandler = (evt) => {
     evt.preventDefault();
@@ -46,19 +52,9 @@ const OrderSubmitBtn = () => {
 
   const onSubmit = evt => {
     evt.preventDefault();
-    console.log(paymentValues)
     setErrors(validate(paymentValues));
-    console.log(errors)
-
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      // save({ items, payment: paymentValues, total });
-      // setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
-      setIsSubmitting(false);
-      setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
-    } else {
-      setIsSubmitting(true);
-      console.log(errors)
-    }
+    setIsSubmitting(true);
+    // console.log(errors)
   };
 
   const onFormInputChange = evt => {
