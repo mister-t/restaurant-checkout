@@ -4,7 +4,7 @@ import Spinner from '../utils/Spinner';
 import OrderThankyou from './OrderThankyou';
 import OrderPaymentCancelBtn from './OrderPaymentCancelBtn'
 
-const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers }) => {
+const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers, errors }) => {
   const { loading, success } = useSelector(state => state.orderCreate);
   const { onFormInputChange, onSubmit, onCancelHandler } = onHandlers;
   const { cardType, fullName, ccNumber, expMonth, expYear, cvc } = paymentValues;
@@ -30,6 +30,7 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
             <div className="flex flex-col items-start mb-5">
               <label className="mb-2">Name on card</label>
               <input className="w-full rounded-md pl-[10px] py-[4px] border-2 focus:outline-none " id="full-name" type="text" placeholder="John Doe" required maxLength={128} name="fullName" value={fullName} onChange={onFormInputChange} />
+              {errors && errors.fullName && <p className="text-red-500 text-sm pl-1">{errors.fullName}</p>}
             </div>
             <div>
               <label className="inline-block text-left w-full mb-2" htmlFor="full-name">Card number</label>

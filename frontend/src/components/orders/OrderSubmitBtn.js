@@ -5,9 +5,13 @@ import { createOrder, clearOrder } from '../../actions/orderActions';
 import { ORDER_PYMT_DEFAULTS } from '../../constants';
 import ModalPayment from './ModalPayment';
 
+import validate from './PaymentValidationRules';
+
 const OrderSubmitBtn = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [paymentValues, setPaymentValues] = useState(ORDER_PYMT_DEFAULTS);
+  const [errors, setErrors] = useState();
+
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const { items, total } = cart;
@@ -32,13 +36,20 @@ const OrderSubmitBtn = () => {
   const onSubmit = evt => {
     evt.preventDefault();
     console.log(paymentValues)
-    save({ items, payment: paymentValues, total });
-    setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
+    setErrors(validate(paymentValues));
+
+    if (!errors || Object.keys(errors).length === 0) {
+      save({ items, payment: paymentValues, total });
+      setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
+    } else {
+      console.log(errors)
+
+    }
   };
 
   const onFormInputChange = evt => {
     evt.persist();
-    console.log(`${evt.target.name}: ${evt.target.value}`);
+    // console.log(`${evt.target.name}: ${evt.target.value}`);
     setPaymentValues(values => ({
       ...values,
       [evt.target.name]: Number(evt.target.value) ? Number(evt.target.value) : evt.target.value
@@ -53,7 +64,8 @@ const OrderSubmitBtn = () => {
 
   const modalProps = {
     onHandlers,
-    paymentValues
+    paymentValues,
+    errors
   };
 
   return (
