@@ -29,13 +29,13 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
             </div>
             <div className="flex flex-col items-start mb-5">
               <label className="mb-2">Name on card</label>
-              <input className="w-full rounded-md pl-[10px] py-[4px] border-2 focus:outline-none " id="full-name" type="text" placeholder="John Doe" required maxLength={128} name="fullName" value={fullName} onChange={onFormInputChange} />
+              <input className={`w-full rounded-md pl-[10px] py-[4px] ${errors.fullName ? "border-red-500" : ""} border-2 focus:outline-none `} id="full-name" type="text" placeholder="John Doe" required maxLength={128} name="fullName" value={fullName} onChange={onFormInputChange} />
               {errors && errors.fullName && <p className="text-red-500 text-sm pl-1">{errors.fullName}</p>}
             </div>
             <div>
               <label className="inline-block text-left w-full mb-2" htmlFor="full-name">Card number</label>
               <div className="flex flex-col md:flex-row justify-between rounded-md border-2">
-                <input className="w-1/2 rounded-md pl-[10px] py-[4px] focus:outline-none" id="full-name" type="text" minLength={12} maxLength={16} placeholder="Card number" required name="ccNumber" value={ccNumber} onChange={onFormInputChange} />
+                <input className={`w-1/2 rounded-md pl-[10px] py-[4px] focus:outline-none`} id="full-name" type="text" minLength={12} maxLength={16} placeholder="Card number" required name="ccNumber" value={ccNumber} onChange={onFormInputChange} />
                 <section className="">
                   <input id="cc-month" maxLength={2} placeholder="MM" className="w-7 focus:outline-none py-[4px]" required name="expMonth" value={expMonth} onChange={onFormInputChange} />
                   <span className='text-slate-800/50 mx-1 w-2'>/</span>
@@ -44,6 +44,10 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
                 </section>
               </div>
             </div>
+            {errors.ccNumber && <p className="text-red-500 text-sm text-left pl-1">{errors.ccNumber}</p>}
+            {errors.expMonth && <p className="text-red-500 text-sm text-left pl-1">{errors.expMonth}</p>}
+            {errors.expYear && <p className="text-red-500 text-sm text-left pl-1">{errors.expYear}</p>}
+            {errors.cvc && <p className="text-red-500 text-sm text-left pl-1">{errors.cvc}</p>}
           </div>
           <button type="submit" className='w-1/2 p-2 rounded-sm shadow-md bg-mgPurple mt-8 text-white focus:outline-none'>Place Order</button>
         </form>
