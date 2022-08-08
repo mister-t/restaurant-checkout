@@ -35,12 +35,12 @@ const ModalPayment = ({ title = "Payment Information", paymentValues, onHandlers
             <div>
               <label className="inline-block text-left w-full mb-2" htmlFor="full-name">Card number</label>
               <div className="flex flex-col md:flex-row justify-between rounded-md border-2">
-                <input className={`w-1/2 rounded-md pl-[10px] py-[4px] focus:outline-none`} id="full-name" type="text" minLength={12} maxLength={16} placeholder="Card number" required name="ccNumber" value={ccNumber} onChange={onFormInputChange} />
+                <input className={`w-1/2 rounded-md pl-[10px] py-[4px] focus:outline-none ${errors.ccNumber ? "text-red-500" : ""}`} id="full-name" type="text" minLength={12} maxLength={16} placeholder="Card number" required name="ccNumber" value={ccNumber} onChange={onFormInputChange} />
                 <section className="">
-                  <input id="cc-month" maxLength={2} placeholder="MM" className="w-7 focus:outline-none py-[4px]" required name="expMonth" value={expMonth} onChange={onFormInputChange} />
+                  <input id="cc-month" maxLength={2} placeholder="MM" className={`w-7 focus:outline-none py-[4px] ${errors.expMonth ? "text-red-500" : ""}`} required name="expMonth" value={expMonth} onChange={onFormInputChange} />
                   <span className='text-slate-800/50 mx-1 w-2'>/</span>
-                  <input id="cc-year" maxLength={2} placeholder="YY" className="w-7 pr-1 focus:outline-none py-[4px]" required name="expYear" value={expYear} onChange={onFormInputChange} />
-                  <input id="cc-cvc" minLength={3} maxLength={4} placeholder="CVC" className="w-8 mx-2 focus:outline-none py-[4px]" required name="cvc" value={cvc} onChange={onFormInputChange} />
+                  <input id="cc-year" maxLength={2} placeholder="YY" className={`w-7 pr-1 focus:outline-none py-[4px] ${errors.expYear ? "text-red-500" : ""}`} required name="expYear" value={expYear} onChange={onFormInputChange} />
+                  <input id="cc-cvc" minLength={3} maxLength={4} placeholder="CVC" className={`w-8 mx-2 focus:outline-none py-[4px] ${errors.cvc ? "text-red-500" : ""}`} required name="cvc" value={cvc} onChange={onFormInputChange} />
                 </section>
               </div>
             </div>
