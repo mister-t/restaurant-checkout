@@ -28,7 +28,7 @@ const Categories = () => {
   }, [dispatch]);
 
   return (
-    <section className="flex flex-col mx-auto mb-6 md:flex-row">
+    <section className="flex flex-col mx-auto md:flex-row">
       {
         categories && (loading || categories.length === 0) ? (<h2>Loading...</h2>) : error ? (<h2>{error}</h2>) : (
           categories.map((cat) => (

@@ -32,7 +32,7 @@ const Items = () => {
     <section className="w-screen h-screen mx-auto">
       {
         items && (loading || !items.length ? <Spinner /> : error ? <h2>{error}</h2> :
-          <div id="panels" className="h-screen flex flex-col gap-x-20 justify-center md:flex-row md:flex-wrap overflow-y-scroll">
+          <div className="pt-6 h-screen flex flex-col gap-x-20 justify-center md:flex-row md:flex-wrap overflow-y-scroll">
             {items.map(item => <Item key={item._id} item={item} numOfItems={items.length} />)}
           </div>
         )
