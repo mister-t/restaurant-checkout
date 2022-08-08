@@ -21,7 +21,7 @@ const Item = ({ item }) => {
   };
 
   return (
-    <div className={`basis-1/${itemSize} relative h-40 border-0 flex flex-col justify-center items-center cursor-pointer`} onClick={onAddItemToCart}>
+    <div className={`basis-1/${itemSize} relative h-40 border-0 flex flex-col justify-center items-center cursor-pointer hover:scale-105 transition-all duration-200`} onClick={onAddItemToCart}>
       <img
         src={imgSrc}
         alt={name}
