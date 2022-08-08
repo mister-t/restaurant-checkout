@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder, clearOrder } from '../../actions/orderActions';
 
@@ -10,7 +10,8 @@ import validate from './PaymentValidationRules';
 const OrderSubmitBtn = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [paymentValues, setPaymentValues] = useState(ORDER_PYMT_DEFAULTS);
-  const [errors, setErrors] = useState();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
@@ -19,6 +20,14 @@ const OrderSubmitBtn = () => {
   const save = order => {
     dispatch(createOrder(order));
   };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && items.length && isSubmitting) {
+      save({ items, payment: paymentValues, total });
+    } else {
+      console.log('loading for the first time; do not validate')
+    }
+  }, [errors, isSubmitting, items, paymentValues, total, save]);
 
   const onCancelHandler = (evt) => {
     evt.preventDefault();
@@ -30,6 +39,8 @@ const OrderSubmitBtn = () => {
     evt.preventDefault();
     if (items.length) {
       setModalVisible(true);
+      setErrors({});
+      setIsSubmitting(false);
     }
   };
 
@@ -37,13 +48,16 @@ const OrderSubmitBtn = () => {
     evt.preventDefault();
     console.log(paymentValues)
     setErrors(validate(paymentValues));
+    console.log(errors)
 
-    if (!errors || Object.keys(errors).length === 0) {
-      save({ items, payment: paymentValues, total });
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      // save({ items, payment: paymentValues, total });
+      // setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
+      setIsSubmitting(false);
       setPaymentValues(ORDER_PYMT_DEFAULTS); //reset values if succesful
     } else {
+      setIsSubmitting(true);
       console.log(errors)
-
     }
   };
 
