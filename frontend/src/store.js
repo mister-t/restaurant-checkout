@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { categoryListReducer, activeCategoryReducer } from './reducers/categoryReducers';
 import { itemListReducer } from './reducers/itemReducers';
 import { cartReducer } from './reducers/cartReducers';
-import { orderReducer } from './reducers/orderReducers';
+import { orderReducer, orderCreateReducer, orderListReducer } from './reducers/orderReducers';
 
 const reducer = combineReducers({
   categoryList: categoryListReducer,
@@ -13,6 +13,8 @@ const reducer = combineReducers({
   itemList: itemListReducer,
   cart: cartReducer,
   order: orderReducer,
+  orderCreate: orderCreateReducer,
+  orderList: orderListReducer,
 });
 
 const initialState = {};
