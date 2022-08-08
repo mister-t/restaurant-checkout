@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../actions/cartActions';
-import ModalCancel from '../utils/ModalCancel';
+import ModalCancel from '../orders/ModalCancel';
 
 const OrderCancel = () => {
   const [modalVisible, setModalVisible] = useState(false);
