@@ -26,6 +26,7 @@
 - Run **npm run data:import** to populate the seed data for the online MongoDB
 - Run **npm run dev** to start both the server and client
 - If the last step was successful, the client app should open automatically to [http://localhost:3000](http://localhost:3000)
+- **Import the [Postman collection](https://github.com/mister-t/restaurant-checkout/tree/main/Postman)** for API testing
 
 ![Menu Categories](https://user-images.githubusercontent.com/1483458/183540607-33b9fd7a-da59-41c8-a742-e4366b2fb4c0.png)
 
