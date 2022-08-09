@@ -38,4 +38,6 @@
 
 ![Form Validations](https://user-images.githubusercontent.com/1483458/183541454-412f2ff4-5e46-4b2a-8603-29b1aa77ac07.png)
 
+![Thank You](https://user-images.githubusercontent.com/1483458/183542036-e0158d3f-8e17-4ff5-8934-7aec5f882569.png)
+
 ![Canceling order](https://user-images.githubusercontent.com/1483458/183541360-b9c6c633-ad04-4e6e-9304-176aa5fc3731.png)
