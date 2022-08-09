@@ -6,194 +6,200 @@
 	},
 	"item": [
 		{
-			"name": "GET /api/categories",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/categories",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"categories"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/images",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/images",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"images"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/categories/:id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/categories/62e4bcda7db1dbccc2700a11",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"categories",
-						"62e4bcda7db1dbccc2700a11"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/categories/items",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/categories/items",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"categories",
-						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/items",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/items",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/items/:id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/items/62e4bcda7db1dbccc2700a16",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"items",
-						"62e4bcda7db1dbccc2700a16"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/items/category/:id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/items/category/62e4bcda7db1dbccc2700a11",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"items",
-						"category",
-						"62e4bcda7db1dbccc2700a11"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/orders",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/items",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"items"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /api/orders/:id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/items/62e4bcda7db1dbccc2700a16",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"items",
-						"62e4bcda7db1dbccc2700a16"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST /api/orders",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"orderItems\": [\n    {\n      \"item\": {\n\n      },\n      \"quantity\": 1,\n    }\n  ],\n  \"payment\": {\n    \"cardType\": \"Visa\",\n    \"nameOnCard\": \"John Doe\",\n    \"expirationMonth\": 11,\n    \"expirationYear\": 26,\n    \"cvc\": 123\n  },\n  \"totalAmount\": 100\n}"
+			"name": "categories",
+			"item": [
+				{
+					"name": "GET /api/categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/categories",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{URL}}/api/orders",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"orders"
-					]
+				{
+					"name": "GET /api/categories/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/categories/62e4bcda7db1dbccc2700a11",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"62e4bcda7db1dbccc2700a11"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "images",
+			"item": [
+				{
+					"name": "GET /api/images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/images",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"images"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "items",
+			"item": [
+				{
+					"name": "GET /api/items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/items",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/items/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/items/62e4bcda7db1dbccc2700a16",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"items",
+								"62e4bcda7db1dbccc2700a16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/items/category/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/items/category/62e4bcda7db1dbccc2700a11",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"items",
+								"category",
+								"62e4bcda7db1dbccc2700a11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "GET /api/orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/orders",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/orders/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/orders/62ec27fb2659d6822bae70ef",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"62ec27fb2659d6822bae70ef"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"items\": [\n    {\n      \"id\":\"62e99ab7a8b85ca624d260aa\",\n      \"name\":\"Large Drink\",\n      \"price\": 2,\n      \"qty\": 1\n    }\n  ],\n  \"payment\": {\n\n    \"cardType\": \"Visa\",\n    \"fullName\": \"John Doe\",\n    \"ccNumber\": \"123456789098\",\n    \"expMonth\": \"12\",\n    \"expYear\": \"25\",\n    \"cvc\": \"123\"\n  },\n  \"total\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/orders",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
