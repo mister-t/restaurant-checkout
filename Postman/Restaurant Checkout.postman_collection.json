@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "8828f016-f88a-4635-9a8a-93fd5787781f",
+		"name": "Restaurant Checkout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /api/categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/categories",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/images",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/images",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/categories/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/categories/62e4bcda7db1dbccc2700a11",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"categories",
+						"62e4bcda7db1dbccc2700a11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/categories/items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/categories/items",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"categories",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/items",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/items/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/items/62e4bcda7db1dbccc2700a16",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"items",
+						"62e4bcda7db1dbccc2700a16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/items/category/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/items/category/62e4bcda7db1dbccc2700a11",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"items",
+						"category",
+						"62e4bcda7db1dbccc2700a11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/items",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/orders/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/items/62e4bcda7db1dbccc2700a16",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"items",
+						"62e4bcda7db1dbccc2700a16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/orders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"orderItems\": [\n    {\n      \"item\": {\n\n      },\n      \"quantity\": 1,\n    }\n  ],\n  \"payment\": {\n    \"cardType\": \"Visa\",\n    \"nameOnCard\": \"John Doe\",\n    \"expirationMonth\": 11,\n    \"expirationYear\": 26,\n    \"cvc\": 123\n  },\n  \"totalAmount\": 100\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/api/orders",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "http://localhost:5001",
+			"type": "default"
+		}
+	]
+}
