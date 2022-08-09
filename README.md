@@ -1,7 +1,7 @@
 ## Restaurant Checkout App
 
 [Live Demo](https://mashginapp.herokuapp.com/)
-![Screen Shot 2022-08-08 at 17 55 52](https://user-images.githubusercontent.com/1483458/183540607-33b9fd7a-da59-41c8-a742-e4366b2fb4c0.png  =200X100)
+![Menu Categories](https://user-images.githubusercontent.com/1483458/183540607-33b9fd7a-da59-41c8-a742-e4366b2fb4c0.png =200X100)
 
 - [x] See menu items fetched from the [Web API](https://github.com/mister-t/restaurant-checkout/blob/main/backend/models/itemModel.js#L4)
 - [x] See ALL items
