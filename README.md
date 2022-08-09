@@ -30,6 +30,8 @@
 
 ![Menu Categories](https://user-images.githubusercontent.com/1483458/183540607-33b9fd7a-da59-41c8-a742-e4366b2fb4c0.png)
 
+![Entree Category](https://user-images.githubusercontent.com/1483458/183541798-e47438cc-0554-482d-b339-5af891ac96a2.png)
+
 ![Order Cart](https://user-images.githubusercontent.com/1483458/183541278-c79d086e-30a5-43b0-9410-4d79d13e68b0.png)
 
 ![Payment Form](https://user-images.githubusercontent.com/1483458/183541401-8e25810c-0ed3-40cf-94a0-1468214c5e40.png)
