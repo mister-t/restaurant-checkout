@@ -1,4 +1,4 @@
-## Restaurant Checkout App
+## Restaurant Checkout App - ReactJS/Redux/TailwindCSS/ExpressJS/NodeJS/MongoDB
 
 [Live Demo - best viewed in a tablet in portrait mode](https://mashginapp.herokuapp.com/)
 
@@ -15,6 +15,7 @@
 - [x] Submit the order (items, qty of each item, payment info, and total amount) to the [Web API](https://github.com/mister-t/restaurant-checkout/blob/5e75570bc9749f8053882756a7f560f30cc89c34/backend/models/orderModel.js#L12)
 - [x] A Thank-you page will be shown if the order is submitted successfully
 - [x] Mobile first development so it is responsive from desktop, tablets, to mobile phones
+- [x] [Postman API collection](https://github.com/mister-t/restaurant-checkout/tree/main/Postman); after importing, setup a environment variable called **URL**
 - [ ] Proposed: a previous orders page; backend routes already available
 
 ### Running locally
