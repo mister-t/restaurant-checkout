@@ -2,7 +2,7 @@
 
 [Live Demo - best viewed in a tablet in portrait mode](https://mashginapp.herokuapp.com/)
 
-[API docs](https://github.com/mister-t/restaurant-checkout/tree/main/Postman/index.html)
+[API docs](https://htmlpreview.github.io/?https://raw.githubusercontent.com/mister-t/restaurant-checkout/main/Postman/index.html)
 
 - [x] See menu items fetched from the [Web API](https://github.com/mister-t/restaurant-checkout/blob/main/backend/models/itemModel.js#L4) running on MongoDB
 - [x] See ALL items
