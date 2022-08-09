@@ -2,13 +2,15 @@
 
 [Live Demo - best viewed in a tablet in portrait mode](https://mashginapp.herokuapp.com/)
 
-- [x] See menu items fetched from the [Web API](https://github.com/mister-t/restaurant-checkout/blob/main/backend/models/itemModel.js#L4)
+- [x] See menu items fetched from the [Web API](https://github.com/mister-t/restaurant-checkout/blob/main/backend/models/itemModel.js#L4) running on MongoDB
 - [x] See ALL items
 - [x] See items by categories
+- [x] Error handling for DB errors, API errors, or general server errors.
 - [x] Add items multiple times to the local cart. An item could be added by clicking/tapping on the item multiple times or from within the cart
 - [x] Remove items multiple times from the local cart.
 - [x] Ability to clear the cart
 - [x] Fill a payment form
+- [x] Save the payment form
 - [x] Validation credit card information to help the user enter correct data
 - [x] Submit the order (items, qty of each item, payment info, and total amount) to the [Web API](https://github.com/mister-t/restaurant-checkout/blob/5e75570bc9749f8053882756a7f560f30cc89c34/backend/models/orderModel.js#L12)
 - [x] A Thank-you page will be shown if the order is submitted successfully
@@ -38,6 +40,6 @@
 
 ![Form Validations](https://user-images.githubusercontent.com/1483458/183541454-412f2ff4-5e46-4b2a-8603-29b1aa77ac07.png)
 
-![Thank You](https://user-images.githubusercontent.com/1483458/183542036-e0158d3f-8e17-4ff5-8934-7aec5f882569.png)
+![Thank You](https://user-images.githubusercontent.com/1483458/183547064-f86120e1-71dd-4d6f-96fa-6f0a1103d5cf.png)
 
 ![Canceling order](https://user-images.githubusercontent.com/1483458/183541360-b9c6c633-ad04-4e6e-9304-176aa5fc3731.png)
