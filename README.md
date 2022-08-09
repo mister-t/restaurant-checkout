@@ -1,7 +1,6 @@
 ## Restaurant Checkout App
 
 [Live Demo](https://mashginapp.herokuapp.com/)
-![Menu Categories](https://user-images.githubusercontent.com/1483458/183540607-33b9fd7a-da59-41c8-a742-e4366b2fb4c0.png)
 
 - [x] See menu items fetched from the [Web API](https://github.com/mister-t/restaurant-checkout/blob/main/backend/models/itemModel.js#L4)
 - [x] See ALL items
@@ -28,3 +27,13 @@
 - Run **npm run data:import** to populate the seed data for the online MongoDB
 - Run **npm run dev** to start both the server and client
 - If the last step was successful, the client app should open automatically to [http://localhost:3000](http://localhost:3000)
+
+![Menu Categories](https://user-images.githubusercontent.com/1483458/183540607-33b9fd7a-da59-41c8-a742-e4366b2fb4c0.png)
+
+![Order Cart](https://user-images.githubusercontent.com/1483458/183541278-c79d086e-30a5-43b0-9410-4d79d13e68b0.png)
+
+![Payment Form](https://user-images.githubusercontent.com/1483458/183541401-8e25810c-0ed3-40cf-94a0-1468214c5e40.png)
+
+![Form Validations](https://user-images.githubusercontent.com/1483458/183541454-412f2ff4-5e46-4b2a-8603-29b1aa77ac07.png)
+
+![Canceling order](https://user-images.githubusercontent.com/1483458/183541360-b9c6c633-ad04-4e6e-9304-176aa5fc3731.png)
